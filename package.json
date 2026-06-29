@@ -1,0 +1,11 @@
+{
+  "name": "crow",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install:skills": "node ./scripts/install-skills.mjs"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.6.0"
+  }
+}
