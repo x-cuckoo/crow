@@ -17,15 +17,16 @@ const AGENTS = {
 
 function printHelp() {
   console.log(`Usage:
-  ./scripts/install-skills.sh
-  ./scripts/install-skills.sh --agents claude,codex --mode symlink
-  ./scripts/install-skills.sh --agents claude --mode copy --skills skill-a,skill-b
+  npm run install:skills
+  node ./scripts/install-skills.mjs --action install --agents claude,codex --mode symlink
+  node ./scripts/install-skills.mjs --action remove --agents claude --skills skill-a,skill-b
 
 Options:
+  --action       Action to run: install | remove (default: install)
   --agents       Comma-separated targets: claude,codex
-  --mode         Install mode: copy | symlink
+  --mode         Install mode for install action: copy | symlink
   --skills       Comma-separated skill names from SKILL.md frontmatter
-  --on-exists    replace | skip (default: replace)
+  --on-exists    For install action: replace | skip (default: replace)
   --dry-run      Print planned operations only
   --yes          Skip interactive prompts when flags are complete
   --help         Show this message
@@ -33,6 +34,7 @@ Options:
 Behavior:
   - Skills are discovered automatically from every SKILL.md under ./skills
   - If --skills is omitted, all discovered skills are selected by default
+  - Agents are never auto-selected in interactive mode; choose at least one
 `);
 }
 
@@ -82,6 +84,7 @@ function discoverSkills() {
 
 function parseArgs(argv) {
   const options = {
+    action: "install",
     agents: [],
     mode: "",
     skills: [],
@@ -93,6 +96,9 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
     switch (arg) {
+      case "--action":
+        options.action = argv[++i] ?? "";
+        break;
       case "--agents":
         options.agents = parseCsv(argv[++i] ?? "");
         break;
@@ -124,11 +130,20 @@ function parseArgs(argv) {
 }
 
 function validateOptions(options, skills) {
+  if (!["install", "remove"].includes(options.action)) {
+    die("--action must be install or remove");
+  }
   if (options.mode && !["copy", "symlink"].includes(options.mode)) {
     die("--mode must be copy or symlink");
   }
   if (!["replace", "skip"].includes(options.onExists)) {
     die("--on-exists must be replace or skip");
+  }
+  if (options.action === "remove" && options.mode) {
+    die("--mode is only valid for --action install");
+  }
+  if (options.action === "remove" && options.onExists !== "replace") {
+    die("--on-exists is only valid for --action install");
   }
   for (const agent of options.agents) {
     if (!(agent in AGENTS)) die(`Unsupported agent: ${agent}`);
@@ -142,10 +157,21 @@ function validateOptions(options, skills) {
 async function chooseInteractively(options, skills) {
   p.intro("Crow Skill Installer");
 
+  if (!options.action) {
+    const action = await p.select({
+      message: "Select action",
+      options: [
+        { value: "install", label: "Install", hint: "copy or symlink skills into agent directories" },
+        { value: "remove", label: "Remove", hint: "delete installed skills from agent directories" },
+      ],
+    });
+    if (p.isCancel(action)) process.exit(1);
+    options.action = action;
+  }
+
   if (options.agents.length === 0) {
     const agents = await p.multiselect({
       message: "Select target agents",
-      initialValues: ["claude", "codex"],
       options: [
         { value: "claude", label: "Claude" },
         { value: "codex", label: "Codex" },
@@ -156,7 +182,7 @@ async function chooseInteractively(options, skills) {
     options.agents = agents;
   }
 
-  if (!options.mode) {
+  if (options.action === "install" && !options.mode) {
     const mode = await p.select({
       message: "Select install mode",
       options: [
@@ -168,7 +194,7 @@ async function chooseInteractively(options, skills) {
     options.mode = mode;
   }
 
-  if (!options.onExists) {
+  if (options.action === "install" && !options.onExists) {
     const onExists = await p.select({
       message: "What should happen if the target already exists?",
       options: [
@@ -218,15 +244,18 @@ function replaceWithSymlink(source, target, dryRun) {
 }
 
 function printPlan(options) {
-  p.note(
-    [
-      `Agents : ${options.agents.join(", ")}`,
-      `Mode   : ${options.mode}`,
-      `Exists : ${options.onExists}`,
-      `Skills : ${options.skills.join(", ")}`,
-    ].join("\n"),
-    "Plan",
-  );
+  const lines = [
+    `Action : ${options.action}`,
+    `Agents : ${options.agents.join(", ")}`,
+    `Skills : ${options.skills.join(", ")}`,
+  ];
+
+  if (options.action === "install") {
+    lines.splice(2, 0, `Mode   : ${options.mode}`);
+    lines.splice(3, 0, `Exists : ${options.onExists}`);
+  }
+
+  p.note(lines.join("\n"), "Plan");
 }
 
 function installSkills(options, skills) {
@@ -258,22 +287,59 @@ function installSkills(options, skills) {
   }
 }
 
+function removeSkills(options) {
+  for (const agent of options.agents) {
+    const targetRoot = AGENTS[agent];
+
+    for (const skillName of options.skills) {
+      const target = path.join(targetRoot, skillName);
+
+      if (!pathExists(target)) {
+        console.log(`Skipped ${skillName} -> ${agent} (not installed)`);
+        continue;
+      }
+
+      if (options.dryRun) {
+        console.log(`Would remove ${target}`);
+      } else {
+        fs.rmSync(target, { recursive: true, force: true });
+      }
+
+      console.log(`${options.dryRun ? "Planned" : "Removed"} ${skillName} -> ${agent}`);
+    }
+  }
+}
+
 async function main() {
   const skills = discoverSkills();
   const options = parseArgs(process.argv.slice(2));
 
-  if (options.agents.length === 0) options.agents = ["claude", "codex"];
   if (options.skills.length === 0) options.skills = skills.map((skill) => skill.name);
 
   validateOptions(options, skills);
 
-  if (!(options.yes && options.mode)) {
+  if (options.yes && options.agents.length === 0) {
+    die("--yes requires at least one agent via --agents");
+  }
+
+  if (options.yes && options.action === "install" && !options.mode) {
+    die("--yes requires --mode when --action install");
+  }
+
+  if (!options.yes) {
     await chooseInteractively(options, skills);
   }
 
   validateOptions(options, skills);
+  if (options.agents.length === 0) {
+    die("Select at least one agent with --agents or in the interactive prompt");
+  }
   printPlan(options);
-  installSkills(options, skills);
+  if (options.action === "install") {
+    installSkills(options, skills);
+  } else {
+    removeSkills(options);
+  }
   p.outro("Done.");
 }
 

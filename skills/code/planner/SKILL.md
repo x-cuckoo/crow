@@ -1,11 +1,11 @@
 ---
 name: crow-code-planner
-description: Planner skill for coding work. Use when the task is to understand existing code, trace behavior across files or repos, identify the right edit surface, make an implementation plan, or explain where a field, flag, route, or dependency comes from.
+description: Planner skill for coding work. The agent must invoke it proactively when the task is to understand existing code, trace behavior across files or repos, identify the right edit surface, make an implementation plan, or explain where a field, flag, route, or dependency comes from. Do not wait for the user to name this skill explicitly.
 ---
 
 # Planner
 
-Use this skill before editing when the task crosses files, layers, packages, or repos.
+The agent must invoke this skill proactively before editing when the task crosses files, layers, packages, or repos. Do not wait for the user to mention the skill by name.
 
 ## Default stance
 
@@ -23,7 +23,7 @@ Use this skill before editing when the task crosses files, layers, packages, or 
 - Read [references/stages/recon.md](references/stages/recon.md) to map behavior before editing.
 - Read [references/stages/decide.md](references/stages/decide.md) to choose the edit surface.
 - Read [references/stages/handoff.md](references/stages/handoff.md) to hand work to implementation cleanly.
-- Read [references/behaviors/challenge-proposals.md](references/behaviors/challenge-proposals.md) when the user already has a proposed design.
+- Read [references/behaviors/challenge-proposals.md](references/behaviors/challenge-proposals.md) when a proposed design already exists.
 - Read [references/behaviors/research-when-unsure.md](references/behaviors/research-when-unsure.md) when you are not confident which approach is best.
 - Read [references/methods/repo-recon.md](references/methods/repo-recon.md) for tracing and multi-repo mapping.
 

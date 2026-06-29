@@ -1,11 +1,11 @@
 ---
 name: crow-code-validator
-description: Validator skill for coding work. Use when a change exists and needs verification, risk checks, close-out judgment, or proof that the behavior works as intended. This includes targeted checks, test selection, runtime validation, and identifying what remains unverified.
+description: Validator skill for coding work. The agent must invoke it proactively when a change exists and needs verification, risk checks, close-out judgment, or proof that the behavior works as intended. This includes targeted checks, test selection, runtime validation, and identifying what remains unverified. Do not wait for the user to name this skill explicitly.
 ---
 
 # Validator
 
-Use this skill after implementation, or earlier when the user asks whether a plan or diff is safe.
+The agent must invoke this skill proactively after implementation, or earlier when a plan or diff needs a safety check. Do not wait for the user to mention the skill by name.
 
 ## Default stance
 

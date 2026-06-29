@@ -1,11 +1,11 @@
 ---
 name: crow-code-executor
-description: Executor skill for coding work. Use when the task is ready to be changed in code: editing files, wiring behavior through existing seams, applying scoped fixes, implementing features, scaffolding a project, or carrying a planned change through to a working code diff.
+description: Executor skill for coding work. The agent must invoke it proactively when the task is ready to be changed in code: editing files, wiring behavior through existing seams, applying scoped fixes, implementing features, scaffolding a project, or carrying a planned change through to a working code diff. Do not wait for the user to name this skill explicitly.
 ---
 
 # Executor
 
-Use this skill once the edit surface is known.
+The agent must invoke this skill proactively once the edit surface is known. Do not wait for the user to mention the skill by name.
 
 ## Default stance
 

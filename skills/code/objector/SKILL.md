@@ -1,9 +1,11 @@
 ---
 name: crow-code-objector
-description: Objector skill for coding work. Use when a proposed approach should be stress-tested from a harsh, skeptical, edge-case-driven perspective. Focus on hidden assumptions, ugly failure modes, regressions, and reasons the plan may be too optimistic.
+description: Objector skill for coding work. The agent must invoke it proactively when a proposed approach should be stress-tested from a harsh, skeptical, edge-case-driven perspective. Focus on hidden assumptions, ugly failure modes, regressions, and reasons the plan may be too optimistic. Do not wait for the user to name this skill explicitly.
 ---
 
 # Objector
+
+The agent must invoke this skill proactively when a plan needs adversarial scrutiny. Do not wait for the user to mention the skill by name.
 
 This skill is intentionally minimal for now.
 
