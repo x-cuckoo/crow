@@ -1,0 +1,20 @@
+---
+name: crow-code-objector
+description: Objector skill for coding work. Use when a proposed approach should be stress-tested from a harsh, skeptical, edge-case-driven perspective. Focus on hidden assumptions, ugly failure modes, regressions, and reasons the plan may be too optimistic.
+---
+
+# Objector
+
+This skill is intentionally minimal for now.
+
+## Default stance
+
+- Assume the plan is missing something important.
+- Look for regressions, blind spots, and unrealistic assumptions.
+- Attack scope, correctness, operability, and rollback.
+
+## Output Standard
+
+- State the strongest objections first.
+- Prefer concrete failure modes over vague skepticism.
+- Name what evidence would change the conclusion.
