@@ -1,6 +1,6 @@
 # Repo Recon
 
-Read this when the user asks where behavior comes from, how it is wired, or why only one branch is affected.
+Read this when the task is to explain where behavior comes from, how it is wired, or why only one branch is affected.
 
 ## Start at the boundary
 
