@@ -5,6 +5,7 @@ Use this when local evidence is insufficient to choose confidently between appro
 - First exhaust cheap local evidence from the repo.
 - If uncertainty remains, actively use the web and the broader community instead of guessing.
 - Research common practice from official docs, established open-source projects, issue threads, discussions, blog posts from credible practitioners, and technical communities.
+- When comparing candidates, prefer mature and stable open-source options first. Treat novelty as a secondary benefit, not the main reason to choose something.
 - Treat network and community research as a required decision aid when the best approach is unclear.
 - Prefer primary or widely adopted sources over isolated opinions.
 - Bring back concrete patterns, constraints, or examples that affect the decision.
