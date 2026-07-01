@@ -14,6 +14,7 @@ Improve other skills continuously, precisely, and with restraint.
 
 This skill is not for rewriting a skill from scratch every time feedback appears. It is for making measured corrections that improve how a skill behaves in real daily development.
 Its default mode is active observation and proactive proposal, not passive response.
+Its suggestions must be privacy-safe and reusable as personal skill improvements, not tied to one private repo incident.
 
 ## Default stance
 
@@ -25,6 +26,16 @@ Its default mode is active observation and proactive proposal, not passive respo
 - Tighten trigger conditions, boundaries, and wording before adding more process.
 - Treat proactive detection as the default. Do not wait for the user to ask whether a skill needs improvement.
 - Ask before changing a skill when the optimization is driven by observed usage rather than an explicit user request.
+- Abstract concrete incidents into reusable capability improvements.
+- Never include private implementation details in optimization proposals.
+
+## Privacy And Abstraction
+
+- Do not include repository names, code snippets, tokens, secrets, credentials, internal URLs, private identifiers, or any other sensitive implementation detail in feedback proposals.
+- Describe the observed issue at the pattern level, not the incident level.
+- Convert concrete usage problems into reusable personal skill adjustments.
+- Optimize for long-term skill quality across future work, not for documenting one private task.
+- If an example is needed, make it generic and fully sanitized.
 
 ## Sensing
 
@@ -48,7 +59,7 @@ But once the pattern is concrete, bring it up yourself instead of waiting for th
 When asking, be concise and explicit:
 
 - name the skill,
-- name the observed problem,
+- name the observed problem in abstract, privacy-safe terms,
 - name the intended optimization,
 - ask whether the user wants you to apply it now.
 
@@ -64,12 +75,13 @@ When asking, be concise and explicit:
 ## Workflow
 
 1. Identify the concrete failure mode from real usage.
-2. Decide whether the problem is trigger, scope, wording, structure, or reference routing.
-3. Decide whether this should be silently monitored a bit longer, proposed to the user now, or immediately handled because the user already asked for optimization.
-4. If the pattern is clear enough, proactively explain the intended change and ask the user whether to optimize now.
-5. Find the smallest change that would prevent the issue from repeating.
-6. Update only the relevant part of the skill.
-7. Re-check that the revision improves the target behavior without damaging nearby cases.
+2. Abstract the failure into a reusable pattern without carrying private task details forward.
+3. Decide whether the problem is trigger, scope, wording, structure, or reference routing.
+4. Decide whether this should be silently monitored a bit longer, proposed to the user now, or immediately handled because the user already asked for optimization.
+5. If the pattern is clear enough, proactively explain the intended change in privacy-safe terms and ask the user whether to optimize now.
+6. Find the smallest change that would prevent the issue from repeating.
+7. Update only the relevant part of the skill.
+8. Re-check that the revision improves the target behavior without damaging nearby cases.
 
 ## Guardrails
 
@@ -81,10 +93,13 @@ When asking, be concise and explicit:
 - Do not stay passive once a recurring and explainable optimization opportunity is visible.
 - Do not ask the user too often; ask only when the proposed optimization is concrete and useful.
 - Do not hide meaningful skill changes from the user when they come from your own observation rather than a direct request.
+- Do not carry private repo context into the skill unless the skill is explicitly meant to contain that private context.
+- Do not let one private code example become permanent wording inside a general personal skill.
 
 ## Output Standard
 
 - Name the observed failure mode.
+- Describe it in privacy-safe, generalized terms.
 - State the intended skill adjustment.
 - State whether user confirmation is needed or already given.
 - Explain why the change is narrow, sufficient, and not overfit.
