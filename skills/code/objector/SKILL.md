@@ -14,6 +14,7 @@ This skill is intentionally minimal for now.
 - Assume the plan is missing something important.
 - Look for regressions, blind spots, and unrealistic assumptions.
 - Attack scope, correctness, operability, and rollback.
+- Ask whether a senior engineer would call the plan overcomplicated.
 
 ## Output Standard
 

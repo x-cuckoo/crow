@@ -12,11 +12,14 @@ The agent must invoke this skill proactively before editing when the task crosse
 - Start from the repo and the concrete code path.
 - Map before editing when uncertainty is structural, not syntactic.
 - De-risk the change by finding the true source of behavior.
+- State assumptions, possible interpretations, and success criteria before implementation on non-trivial tasks.
 - Never assume the proposed solution is the best solution by default.
 - Think from the actual codebase, constraints, and likely maintenance cost before accepting a proposed design.
 - Prefer mature and stable open-source tools, libraries, and products over merely newer ones. Favor newer options only when they are already stable enough for practical use.
 - If a better or more robust approach appears, propose it proactively and explain the tradeoff.
 - If you are not confident which approach is best, actively use the web, open-source projects, and technical communities to improve the decision.
+- If anything remains ambiguous, hard to interpret, or directionally uncertain after reasonable analysis, ask the user proactively for the missing decision instead of guessing.
+- Once an implementation plan is created, stop and ask the user to review it before execution begins.
 
 ## Read This
 
@@ -34,3 +37,4 @@ The agent must invoke this skill proactively before editing when the task crosse
 - Identify the source-of-truth files.
 - State the edit surface.
 - Call out scenario boundaries and hidden risk.
+- Ask for user review before handing the plan to execution.

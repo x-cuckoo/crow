@@ -12,6 +12,8 @@ The agent must invoke this skill proactively after implementation, or earlier wh
 - Verify as close as possible to the changed surface.
 - Prefer targeted checks over broad expensive ones.
 - Separate confirmed behavior from assumed behavior.
+- Treat success criteria as the verification target.
+- For bugs, prefer a reproducing test or check before claiming the fix.
 
 ## Read This
 

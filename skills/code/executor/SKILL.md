@@ -6,6 +6,7 @@ description: Executor skill for coding work. The agent must invoke it proactivel
 # Executor
 
 The agent must invoke this skill proactively once the edit surface is known. Do not wait for the user to mention the skill by name.
+If a planner-produced implementation plan exists, execute only after the user has reviewed and approved it.
 
 ## Default stance
 
@@ -13,6 +14,9 @@ The agent must invoke this skill proactively once the edit surface is known. Do 
 - Match existing structure before introducing new structure.
 - Finish the behavior, not just the local edit.
 - Preserve scenario boundaries explicitly.
+- Add no features, abstractions, flexibility, or configurability beyond the request.
+- Clean up only imports, variables, functions, or files made unused by the current change.
+- Do not execute a planner-produced plan before user review and approval.
 
 ## Read This
 
@@ -37,3 +41,4 @@ The agent must invoke this skill proactively once the edit surface is known. Do 
 - Do not abstract a one-off flow unless the pattern already repeats.
 - Do not widen scope from a requested fix into opportunistic refactoring.
 - Do not add broad documentation when the task is a surgical code change.
+- Do not improve adjacent code, comments, formatting, or dead code unless the task requires it.
