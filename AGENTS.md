@@ -12,4 +12,5 @@
 - Make surgical changes only. Every changed line should trace directly to the user's request; clean up only artifacts introduced by your own change.
 - Define how the work will be verified and loop until the relevant checks pass or the remaining gap is stated clearly.
 - When choosing tools, libraries, or products, prefer mature and stable open-source options first. Newer options are welcome when they are already stable, but stability matters more than novelty.
+- For open-source packages and dependencies, prefer what the current project can already support; when adding or upgrading, choose the latest stable version compatible with the project's runtime, package manager, and lockfile.
 - If you are unsure which approach is best, research common practice from the web, open-source projects, or technical communities before deciding.

@@ -16,7 +16,6 @@ If a planner-produced implementation plan exists, execute only after the user ha
 - Preserve scenario boundaries explicitly.
 - Add no features, abstractions, flexibility, or configurability beyond the request.
 - Clean up only imports, variables, functions, or files made unused by the current change.
-- Do not execute a planner-produced plan before user review and approval.
 
 ## Read This
 

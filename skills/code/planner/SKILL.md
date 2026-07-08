@@ -1,6 +1,6 @@
 ---
 name: crow-code-planner
-description: Planner skill for coding work. The agent must invoke it proactively when the task is to understand existing code, trace behavior across files or repos, identify the right edit surface, make an implementation plan, or explain where a field, flag, route, or dependency comes from. Do not wait for the user to name this skill explicitly.
+description: Planner skill for coding work. The agent must invoke it proactively when the task is to understand existing code, trace behavior across files or repos, identify the right edit surface, make an implementation plan, research technical direction through web/open-source/community evidence, or explain where a field, flag, route, or dependency comes from. Do not wait for the user to name this skill explicitly.
 ---
 
 # Planner
@@ -9,16 +9,15 @@ The agent must invoke this skill proactively before editing when the task crosse
 
 ## Default stance
 
-- Start from the repo and the concrete code path.
-- Map before editing when uncertainty is structural, not syntactic.
-- De-risk the change by finding the true source of behavior.
-- State assumptions, possible interpretations, and success criteria before implementation on non-trivial tasks.
-- Never assume the proposed solution is the best solution by default.
-- Think from the actual codebase, constraints, and likely maintenance cost before accepting a proposed design.
-- Prefer mature and stable open-source tools, libraries, and products over merely newer ones. Favor newer options only when they are already stable enough for practical use.
+- Start from the repo and concrete code path; map structural uncertainty before editing.
+- Treat inputs as hypotheses until checked, and separate confirmed facts, assumptions, and user decisions.
+- State assumptions, possible interpretations, and success criteria for non-trivial tasks.
+- Do not assume the proposed solution is best; think from codebase constraints and maintenance cost.
+- Prefer mature, stable open-source options; when changing dependencies, choose the latest stable version compatible with the current runtime, package manager, and lockfile.
 - If a better or more robust approach appears, propose it proactively and explain the tradeoff.
-- If you are not confident which approach is best, actively use the web, open-source projects, and technical communities to improve the decision.
+- Use the web, official docs, open-source projects, and technical communities early when external evidence can materially improve the plan.
 - If anything remains ambiguous, hard to interpret, or directionally uncertain after reasonable analysis, ask the user proactively for the missing decision instead of guessing.
+- Before user review, invoke crow-code-objector for non-trivial, cross-boundary, document-driven, user-proposed, or risky plans; block unresolved `Block` findings and revise for `Proceed with changes`.
 - Once an implementation plan is created, stop and ask the user to review it before execution begins.
 
 ## Read This
@@ -28,13 +27,12 @@ The agent must invoke this skill proactively before editing when the task crosse
 - Read [references/stages/decide.md](references/stages/decide.md) to choose the edit surface.
 - Read [references/stages/handoff.md](references/stages/handoff.md) to hand work to implementation cleanly.
 - Read [references/behaviors/challenge-proposals.md](references/behaviors/challenge-proposals.md) when a proposed design already exists.
-- Read [references/behaviors/research-when-unsure.md](references/behaviors/research-when-unsure.md) when you are not confident which approach is best.
+- Read [references/behaviors/research-when-unsure.md](references/behaviors/research-when-unsure.md) when external evidence can improve the plan.
 - Read [references/methods/repo-recon.md](references/methods/repo-recon.md) for tracing and multi-repo mapping.
 
 ## Output Standard
 
-- Name the concrete change target.
-- Identify the source-of-truth files.
-- State the edit surface.
-- Call out scenario boundaries and hidden risk.
+- Name the concrete change target, source-of-truth files, and edit surface.
+- Separate confirmed evidence from assumptions and user decisions still needed; call out scenario boundaries and hidden risk.
+- State how objector findings changed the plan, or why no change was needed.
 - Ask for user review before handing the plan to execution.
