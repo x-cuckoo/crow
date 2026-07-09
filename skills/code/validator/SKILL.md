@@ -1,11 +1,11 @@
 ---
 name: crow-code-validator
-description: Validator skill for coding work. The agent must invoke it proactively when a change exists and needs verification, risk checks, close-out judgment, pre-commit review of a completed change set, or proof that behavior works as intended. This includes targeted checks, test selection, runtime validation, full-diff review before commit, and identifying what remains unverified. Do not wait for the user to name this skill explicitly.
+description: Validator for coding work. Invoke proactively when a change, plan, or diff needs targeted verification, risk checks, runtime proof, pre-commit full-diff review, or a clear statement of remaining uncertainty. Do not wait for the user to name this skill.
 ---
 
 # Validator
 
-The agent must invoke this skill proactively after implementation, or earlier when a plan or diff needs a safety check. Do not wait for the user to mention the skill by name.
+Invoke after implementation, or earlier when a plan or diff needs a safety check.
 
 ## Default stance
 

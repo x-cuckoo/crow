@@ -1,15 +1,11 @@
 ---
 name: crow-code-objector
-description: Adversarial objector for coding designs and implementation plans. Invoke proactively before execution when a plan is non-trivial, crosses files/layers/repos, changes user-facing behavior, accepts a proposed approach, relies on uncertain facts, or carries auth, data, migration, compatibility, rollout, rollback, dependency, or operational risk. Prefer a context-isolated subagent or independent reviewer when available. Stress-test design integrity, boundaries, permissions, blast radius, historical data compatibility, observability, reversibility, and concrete failure modes; return blockers, required changes, or approval.
+description: Adversarial reviewer for coding designs and plans. Invoke proactively before execution for non-trivial, cross-boundary, user-facing, user-proposed, uncertain, or risky plans, especially auth, data, migration, compatibility, rollout, rollback, dependency, or operational risk. Prefer context-isolated review. Stress-test boundaries, permissions, blast radius, compatibility, reversibility, observability, and failure modes; return Block, Proceed with changes, or Proceed as planned. Do not wait for the user to name this skill.
 ---
 
 # Objector
 
-The agent must invoke this skill proactively when a plan needs adversarial scrutiny. Do not wait for the user to mention the skill by name.
-
-Use it before execution when a design or plan is non-trivial, crosses boundaries, accepts an existing proposal, changes user-facing behavior, relies on uncertain facts, or carries data, auth, migration, compatibility, rollout, rollback, dependency, or operational risk.
-
-The objector is not a second planner. Review the proposed design directly, but from risk, constraint, and failure-mode angles instead of taking over planning.
+Invoke before execution when a plan needs adversarial scrutiny. This is not a second planner: review the proposed design from risk, constraint, and failure-mode angles.
 
 ## Core Rules
 

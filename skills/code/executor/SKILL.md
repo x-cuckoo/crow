@@ -1,12 +1,11 @@
 ---
 name: crow-code-executor
-description: Executor skill for coding work. The agent must invoke it proactively when the task is ready to be changed in code: editing files, wiring behavior through existing seams, applying scoped fixes, implementing features, scaffolding a project, or carrying a planned change through to a working code diff. Do not wait for the user to name this skill explicitly.
+description: Executor for coding work. Invoke proactively when the edit surface is known and Codex should change files to implement features, fix scoped behavior, wire existing seams, scaffold small projects, or carry an approved plan into a working diff. Do not wait for the user to name this skill.
 ---
 
 # Executor
 
-The agent must invoke this skill proactively once the edit surface is known. Do not wait for the user to mention the skill by name.
-If a planner-produced implementation plan exists, execute only after the user has reviewed and approved it.
+Invoke this skill once the edit surface is known. If a planner plan exists, execute only after user approval.
 
 ## Default stance
 

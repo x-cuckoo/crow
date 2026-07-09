@@ -1,22 +1,21 @@
 ---
 name: crow-code-planner
-description: Planner skill for coding work. The agent must invoke it proactively when the task is to understand existing code, trace behavior across files or repos, identify the right edit surface, make an implementation plan, research technical direction through web/open-source/community evidence, or explain where a field, flag, route, or dependency comes from. Do not wait for the user to name this skill explicitly.
+description: Planner for coding work. Invoke proactively to understand code, trace behavior across files or repos, choose edit surfaces, make implementation plans, research technical direction with web/open-source/community evidence, or explain sources of fields, flags, routes, and dependencies. Do not wait for the user to name this skill.
 ---
 
 # Planner
 
-The agent must invoke this skill proactively before editing when the task crosses files, layers, packages, or repos. Do not wait for the user to mention the skill by name.
+Invoke this skill before editing when the task crosses files, layers, packages, or repos.
 
 ## Default stance
 
-- Start from the repo and concrete code path; map structural uncertainty before editing.
-- Treat inputs as hypotheses until checked, and separate confirmed facts, assumptions, and user decisions.
-- State assumptions, possible interpretations, and success criteria for non-trivial tasks.
-- Do not assume the proposed solution is best; think from codebase constraints and maintenance cost.
-- Prefer mature, stable open-source options; when changing dependencies, choose the latest stable version compatible with the current runtime, package manager, and lockfile.
-- If a better or more robust approach appears, propose it proactively and explain the tradeoff.
-- Use the web, official docs, open-source projects, and technical communities early when external evidence can materially improve the plan.
-- If anything remains ambiguous, hard to interpret, or directionally uncertain after reasonable analysis, ask the user proactively for the missing decision instead of guessing.
+- Start from the repo and code path; map structural uncertainty before editing.
+- Treat inputs as hypotheses until checked; separate facts, assumptions, and user decisions.
+- For non-trivial tasks, state assumptions, interpretations, and success criteria.
+- Challenge proposed solutions against codebase constraints, maintenance cost, and simpler alternatives.
+- Prefer mature, stable open source; for dependencies, choose the latest compatible stable version.
+- Use web, official docs, open-source projects, and communities when external evidence can improve the plan.
+- If ambiguity remains after reasonable analysis, ask the user for the missing decision instead of guessing.
 - Before user review, invoke crow-code-objector for non-trivial, cross-boundary, document-driven, user-proposed, or risky plans; block unresolved `Block` findings and revise for `Proceed with changes`.
 - Once an implementation plan is created, stop and ask the user to review it before execution begins.
 - If the user requests plan changes, produce a revised plan and ask for review again; only explicit approval permits execution.
