@@ -19,6 +19,7 @@ The agent must invoke this skill proactively before editing when the task crosse
 - If anything remains ambiguous, hard to interpret, or directionally uncertain after reasonable analysis, ask the user proactively for the missing decision instead of guessing.
 - Before user review, invoke crow-code-objector for non-trivial, cross-boundary, document-driven, user-proposed, or risky plans; block unresolved `Block` findings and revise for `Proceed with changes`.
 - Once an implementation plan is created, stop and ask the user to review it before execution begins.
+- If the user requests plan changes, produce a revised plan and ask for review again; only explicit approval permits execution.
 
 ## Read This
 
