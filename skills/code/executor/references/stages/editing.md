@@ -4,7 +4,10 @@
 
 - Change the smallest reliable set of files.
 - Match local style and architecture before introducing new patterns.
-- Prefer expressive names and simple structure over explanatory comments.
+- Prefer concise, clear, and semantically precise names over comments or clever abbreviations.
+- Match local naming conventions; names should reflect role, intent, and domain meaning at the point of use.
+- Keep names as short as clarity allows; expand them when scope, public API, or distance from context makes meaning unclear.
+- Avoid vague names, private abbreviations, misleading type-only names, and names that merely repeat surrounding context.
 - Add concise comments only for non-obvious intent, constraints, edge cases, external contracts, or surprising tradeoffs.
 - Do not add comments that merely restate code; update or remove stale comments touched by the current change.
 - Extend behavior at the natural seam: route, mapper, adapter, schema, prop, config, or feature gate.

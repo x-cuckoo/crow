@@ -19,6 +19,7 @@ Run this after the executor completes the intended change set and before committ
 - Check behavior: the full path should be wired, not just locally edited.
 - Check risk: boundaries, permissions, compatibility, data, rollback, privacy, and external contracts should not have obvious gaps.
 - Check maintainability: naming, comments, complexity, duplication, and abstractions should fit the local style and task size.
+- Check naming specifically: changed names should be concise, clear, semantically precise, and appropriate to local conventions; flag vague names, misleading abbreviations, or names that need comments to explain them.
 - Check evidence: targeted tests, lint, type checks, runtime checks, or a clear reason they were skipped.
 - Check commit readiness: expected files are included, worktree state is understood, and the commit message can be a Conventional Commit message.
 
