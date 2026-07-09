@@ -4,7 +4,9 @@
 
 - Change the smallest reliable set of files.
 - Match local style and architecture before introducing new patterns.
-- Keep comments sparse and only where they remove real ambiguity.
+- Prefer expressive names and simple structure over explanatory comments.
+- Add concise comments only for non-obvious intent, constraints, edge cases, external contracts, or surprising tradeoffs.
+- Do not add comments that merely restate code; update or remove stale comments touched by the current change.
 - Extend behavior at the natural seam: route, mapper, adapter, schema, prop, config, or feature gate.
 - Add no speculative behavior beyond what was asked.
 - Avoid abstractions for single-use code.
