@@ -17,7 +17,9 @@ Run this after the executor completes the intended change set and before committ
 - Review the full diff, not each file in isolation.
 - Check scope: every changed line should trace to the request; flag unrelated refactors, formatting churn, debug code, temporary files, secrets, or generated noise.
 - Check behavior: the full path should be wired, not just locally edited.
-- Check risk: boundaries, permissions, compatibility, data, rollback, privacy, and external contracts should not have obvious gaps.
+- Check simplicity: ask whether the code can be smaller, clearer, or use existing seams; flag overbuilt flows, unnecessary abstractions, and cumbersome control paths.
+- Check impact and compatibility: impact should stay within intended scenarios; preserve public APIs, data shapes, migrations, flags, old clients, historical data, and existing behavior unless explicitly changed.
+- Check risk: boundaries, permissions, data, rollback, privacy, external contracts, and operational failure modes should not have obvious gaps.
 - Check maintainability: comments, complexity, duplication, and abstractions should fit the local style and task size.
 - Check naming specifically: changed names should be concise, clear, semantically precise, and appropriate to local conventions; flag vague names, misleading abbreviations, or names that need comments to explain them.
 - Check evidence: targeted tests, lint, type checks, runtime checks, or a clear reason they were skipped.
