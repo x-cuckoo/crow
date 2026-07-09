@@ -22,7 +22,7 @@ If a planner-produced implementation plan exists, execute only after the user ha
 - Read [references/stages/editing.md](references/stages/editing.md) for how to apply a change.
 - Read [references/stages/finish.md](references/stages/finish.md) for close-out and handoff.
 - Read [references/behaviors/scope-control.md](references/behaviors/scope-control.md) when one scenario must change and others must not.
-- Read [references/behaviors/commit-format.md](references/behaviors/commit-format.md) when the task includes a commit.
+- Read [references/behaviors/commit.md](references/behaviors/commit.md) when the task includes a commit.
 - Read [references/tasks/frontend-gates.md](references/tasks/frontend-gates.md) for gated frontend behavior.
 - Read [references/tasks/backend-api-auth.md](references/tasks/backend-api-auth.md) for backend API or auth changes.
 - Read [references/tasks/bootstrap-scaffolding.md](references/tasks/bootstrap-scaffolding.md) for new project or local service setup.
@@ -33,7 +33,7 @@ If a planner-produced implementation plan exists, execute only after the user ha
 - Make the code change.
 - Keep scenario boundaries intact.
 - Leave the result ready for validation.
-- If creating a commit, use Conventional Commits format.
+- If creating a commit, use a Conventional Commit message.
 
 ## Anti-patterns
 

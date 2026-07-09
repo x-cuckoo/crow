@@ -10,6 +10,18 @@
 - For scripts or services, validate startup or argument parsing if that changed.
 - For routing or auth work, verify the request path and bypass conditions, not just the handler body.
 
+## Pre-commit review
+
+Run this after the executor completes the intended change set and before committing.
+
+- Review the full diff, not each file in isolation.
+- Check scope: every changed line should trace to the request; flag unrelated refactors, formatting churn, debug code, temporary files, secrets, or generated noise.
+- Check behavior: the full path should be wired, not just locally edited.
+- Check risk: boundaries, permissions, compatibility, data, rollback, privacy, and external contracts should not have obvious gaps.
+- Check maintainability: naming, comments, complexity, duplication, and abstractions should fit the local style and task size.
+- Check evidence: targeted tests, lint, type checks, runtime checks, or a clear reason they were skipped.
+- Check commit readiness: expected files are included, worktree state is understood, and the commit message can be a Conventional Commit message.
+
 ## When full runtime validation is expensive
 
 - Validate the relevant code path.
