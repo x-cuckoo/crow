@@ -24,5 +24,5 @@
 
 - Name the violated boundary, invariant, or compatibility expectation for every serious objection.
 - Prefer evidence from code, schema, tests, runtime behavior, official docs, or comparable primary sources.
-- If evidence is missing, name the missing fact and return `Block` or `Proceed with changes`.
+- If decision-critical evidence is missing, name it. Return `Block` only when safe or feasible execution cannot be established; otherwise bound the uncertainty with `Proceed with changes`.
 - Do not accept "seems fine" when the plan changes permissions, data shape, external contracts, or irreversible state.

@@ -1,11 +1,11 @@
 ---
 name: crow-code-validator
-description: Validator for coding work. Invoke proactively when a change, plan, or diff needs targeted verification, risk checks, runtime proof, pre-commit full-diff review, or a clear statement of remaining uncertainty. Do not wait for the user to name this skill.
+description: Validator for completed coding work. Invoke proactively after implementation or when a diff needs targeted verification, runtime proof, pre-commit full-diff review, or a clear statement of remaining uncertainty. Validate a plan only when explicitly asked to check a specific assumption or success criterion. Do not wait for the user to name this skill.
 ---
 
 # Validator
 
-Invoke after implementation, or earlier when a plan or diff needs a safety check.
+Use this skill after implementation. Use `crow-code-objector` for adversarial plan review; validate a plan only when explicitly delegated a specific assumption or success criterion.
 
 ## Default stance
 
