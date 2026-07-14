@@ -3,6 +3,7 @@
 - Prefer the smallest coherent change that matches the current architecture.
 - If multiple repos are involved, identify which repo owns the behavior and which repos only adapt or consume it.
 - If behavior is gated, verify where the gate originates and which scenarios must not move.
+- Do not add fallback, dual-read, or compatibility paths for states explicitly ruled out unless current code, data, or callers prove they are needed.
 - If a simpler approach solves the problem, surface it.
 - If a proposed approach is overbuilt, say so and offer the smaller path.
 - Decide whether the user's proposal is the best fit, a workable fit, or the wrong fit.

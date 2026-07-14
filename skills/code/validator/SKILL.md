@@ -10,7 +10,7 @@ Use this skill after implementation. Use `crow-code-objector` for adversarial pl
 ## Default stance
 
 - Verify as close as possible to the changed surface.
-- Review the complete change set after executor finishes and before commit; do not run a review after every single file edit.
+- Treat consecutive follow-up edits in the same uncommitted scope as one change set; use cheap targeted checks during iteration and defer full-diff review until the set is complete, commit is requested, or risk warrants immediate review.
 - Prefer targeted checks over broad expensive ones.
 - Separate confirmed behavior from assumed behavior.
 - Treat success criteria as the verification target.

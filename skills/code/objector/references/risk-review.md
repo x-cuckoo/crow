@@ -2,10 +2,10 @@
 
 ## Isolation
 
-- Prefer a fresh, context-isolated subagent or independent reviewer when available.
+- Use a fresh, context-isolated subagent or independent reviewer whenever the capability is available.
 - Give the reviewer only the proposed plan, requirements, relevant evidence, constraints, and verification expectations.
 - Do not pass prior reasoning, preferred conclusions, confidence claims, hidden assumptions, or suggested objections.
-- If isolation is unavailable, perform a manual isolation pass from the raw plan and evidence, and state that fallback.
+- Use manual isolation only when no fresh-context reviewer is available; perform it from the raw plan and evidence, and state why the fallback was necessary.
 
 ## Review Axes
 

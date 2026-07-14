@@ -4,6 +4,7 @@ Use this when the task is to explain where behavior comes from, how it is wired,
 
 ## Trace the flow
 
+- Start with user-supplied runtime evidence, named reference implementations, or requested local sources when they can answer directly; do not substitute a broader source the user excluded.
 - If behavior spans files or layers, map the current flow before editing.
 - Trace definitions before call sites for types, schemas, flags, props, and payloads.
 - Trace call sites before edits when behavior already exists and must be adjusted.

@@ -9,10 +9,10 @@ Use this skill once the edit surface is known. If a planner plan exists, execute
 
 ## Workflow
 
-1. Always read [references/stages/editing.md](references/stages/editing.md) before changing files.
+1. Read [references/stages/editing.md](references/stages/editing.md) when starting a change set or when its scope changes materially; direct follow-up edits may reuse the established surface.
 2. Load only the conditional references that match the task.
 3. Make the smallest complete change that satisfies the request.
-4. Read [references/stages/finish.md](references/stages/finish.md) after implementation and hand the complete change set to validation.
+4. Keep direct follow-ups in the current change set; read [references/stages/finish.md](references/stages/finish.md) when it is ready for handoff or risk requires immediate validation.
 
 ## Conditional References
 
