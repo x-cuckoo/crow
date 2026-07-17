@@ -23,6 +23,7 @@ Run this after the executor completes the intended change set and before committ
 - Check risk: boundaries, permissions, data, rollback, privacy, external contracts, and operational failure modes should not have obvious gaps.
 - Check maintainability: comments, complexity, duplication, and abstractions should fit the local style and task size.
 - Check naming specifically: changed names should be concise, clear, semantically precise, and appropriate to local conventions; flag vague names, misleading abbreviations, or names that need comments to explain them.
+- Check booleans specifically: conditions should read as clear domain predicates; flag generic `flag`/`status`/`done`/`check` names, double negatives, multi-purpose booleans, and positional boolean parameters that hide modes.
 - Check evidence: targeted tests, lint, type checks, runtime checks, or a clear reason they were skipped.
 - Check disclosure: sanitize command evidence and final summaries; do not expose secrets, credentials, private URLs, or sensitive identifiers unless the exact value is required and safe to share.
 - Check commit readiness: expected files are included, worktree state is understood, and the commit message can be a Conventional Commit message.
