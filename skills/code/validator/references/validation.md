@@ -9,6 +9,9 @@
 - For refactors, confirm behavior before and after when feasible.
 - For scripts or services, validate startup or argument parsing if that changed.
 - For routing or auth work, verify the request path and bypass conditions, not just the handler body.
+- Before expensive runtime validation, confirm the applicable target owner, command, surface, data route, and required services.
+- Use condition-based polling with a bounded deadline; retry the same no-progress result at most once when the operation can legitimately be slow.
+- After a second equivalent no-progress result, stop and diagnose the prerequisite or revise the validation route instead of repeating or broadening it.
 
 ## Pre-commit review
 

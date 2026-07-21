@@ -19,6 +19,7 @@ Execution begins only after explicit user approval of the latest plan.
 ## Conditional References
 
 - Read [references/behaviors/challenge-proposals.md](references/behaviors/challenge-proposals.md) when a proposed design already exists.
+- Read [references/behaviors/parallel-recon.md](references/behaviors/parallel-recon.md) when at least two independent, material investigations can run concurrently.
 - Read [references/behaviors/research-when-unsure.md](references/behaviors/research-when-unsure.md) when external evidence can improve the plan.
 
 ## Plan Standard

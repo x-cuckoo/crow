@@ -4,6 +4,8 @@
 
 - Change the smallest reliable set of files.
 - Match local style and architecture before introducing new patterns.
+- Reuse unchanged skill and reference content already loaded for the task; reload only after the source or material scope changes, or when a specific omitted constraint is needed.
+- After reading a required entrypoint, load the smallest relevant section or reference instead of rereading full files.
 - Prefer concise, clear, and semantically precise names over comments or clever abbreviations.
 - Match local naming conventions; names should reflect role, intent, and domain meaning at the point of use.
 - Keep names as short as clarity allows; expand them when scope, public API, or distance from context makes meaning unclear.

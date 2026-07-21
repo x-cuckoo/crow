@@ -11,7 +11,8 @@ Invoke before execution when a plan needs adversarial scrutiny. This is not a se
 
 - Assume the plan is missing something important; prefer concrete failure modes over vague skepticism.
 - Read [references/risk-review.md](references/risk-review.md) for detailed isolation, risk axes, and evidence rules when doing more than a trivial sanity check.
-- For non-trivial or materially risky reviews, use a context-isolated subagent or independent reviewer whenever available; use manual isolation only when unavailable and state why.
+- For non-trivial or materially risky reviews, use exactly one context-isolated reviewer when available; do not allow reviewer delegation, and wait for it at most once.
+- If it does not return, report independent review unavailable; ask the user for high-risk plans, or use a clearly labeled internal adversarial pass for lower-risk plans.
 - Verify facts that materially affect feasibility, safety, scope, or the verdict; user confirmation can resolve product decisions, not factual proof.
 - Attack design, boundary, permission, data, compatibility, operability, and rollback assumptions before style or implementation preference.
 - Check whether a simpler, safer, or more reversible plan exists.

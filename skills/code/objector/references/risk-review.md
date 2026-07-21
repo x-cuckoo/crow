@@ -2,10 +2,12 @@
 
 ## Isolation
 
-- Use a fresh, context-isolated subagent or independent reviewer whenever the capability is available.
+- Use exactly one fresh, context-isolated reviewer whenever the capability is available.
 - Give the reviewer only the proposed plan, requirements, relevant evidence, constraints, and verification expectations.
 - Do not pass prior reasoning, preferred conclusions, confidence claims, hidden assumptions, or suggested objections.
-- Use manual isolation only when no fresh-context reviewer is available; perform it from the raw plan and evidence, and state why the fallback was necessary.
+- Do not allow the reviewer to delegate or create another review layer.
+- Wait at most once with a bounded timeout appropriate to the tool; do not busy-poll.
+- If no result returns, report independent review unavailable. Ask the user before a high-risk plan proceeds; for lower-risk plans, an internal adversarial pass may be used only when labeled as non-independent.
 
 ## Review Axes
 
