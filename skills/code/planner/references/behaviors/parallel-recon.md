@@ -4,6 +4,7 @@ Use this only when at least two independent, material evidence questions can run
 
 - Keep one planner responsible for synthesis, decisions, and the final plan.
 - Use at most three read-only sidecar agents with disjoint questions and minimal required context.
+- When orchestration exposes model selection, explicitly select a faster available model for bounded, read-only evidence collection; keep higher-capability models for synthesis, ambiguous work, and risk review. Otherwise inherit the default model.
 - Ask sidecars for evidence, boundaries, and uncertainty, not complete plans or preferred conclusions.
 - Do not allow sidecars to delegate further.
 - Keep the immediate critical path local and continue non-overlapping work while sidecars run.
