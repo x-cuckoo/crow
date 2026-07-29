@@ -1,6 +1,6 @@
 ---
 name: crow-feedback-optimization
-description: Improve crow-code-planner, crow-code-executor, crow-code-validator, and crow-code-objector during daily use. Invoke proactively when repeated corrections, missed intent, overreach, poor triggering, or low-value behavior reveals a reusable weakness. Propose a privacy-safe, minimal change and ask before editing unless already requested. Never modify files outside those four skills.
+description: Improve crow-code-planner, crow-code-executor, crow-code-validator, and crow-code-objector during daily use. Invoke proactively when repeated corrections, missed intent, overreach, poor triggering, or low-value behavior reveals a reusable weakness. Do not wait for the user to request optimization. Propose a privacy-safe, minimal change and ask before editing unless already requested. Never modify files outside those four skills.
 ---
 
 # Feedback Optimization
@@ -9,42 +9,34 @@ Detect recurring weakness proactively, then make the smallest reusable improveme
 
 ## Scope
 
-Allowed targets and paths:
+Allowed write targets:
 
 - `crow-code-planner` -> `skills/code/planner/`
 - `crow-code-executor` -> `skills/code/executor/`
 - `crow-code-validator` -> `skills/code/validator/`
 - `crow-code-objector` -> `skills/code/objector/`
 
-All other files are out of scope, including `AGENTS.md`, project files, installers, package metadata, this skill, and non-crow-code skills. Mention improvements outside this scope separately and ask for a new target.
+Everything else is out of scope, including `AGENTS.md`, project files, installers, package metadata, this skill, and non-crow-code skills. Mention outside improvements separately and request a new target.
 
 ## Sensing
 
-- Watch for repeated friction, corrections, hesitation, re-explanations, or manual steering.
-- Notice when a skill triggers too often, too rarely, or with the wrong scope.
-- Notice wording that is vague, rigid, noisy, or easy to misread.
-- Treat two similar corrections about scope, target, wording, or intent as a strong signal.
-- Do not interrupt on a weak first signal; once the pattern is clear, propose the optimization proactively.
+- Track repeated corrections, friction, mis-triggering, overreach, and vague wording.
+- Treat two similar signals as strong evidence; ignore one-offs and propose an optimization proactively once the pattern is clear.
 
 ## Workflow
 
 1. Abstract the observed failure into a reusable, privacy-safe pattern.
-2. Select the target skill and classify the fix as trigger, scope, wording, structure, routing, or workflow; ask if the target is ambiguous.
-3. State the pattern, intended adjustment, allowed path, and whether confirmation is needed.
-4. Ask before editing unless the user already requested the optimization.
-5. Make the smallest allowed edit and check that it generalizes without overfitting.
+2. Select the target and fix class; ask if ambiguous.
+3. State the pattern, allowed path, adjustment, and confirmation state; ask before editing unless already requested.
+4. Make the smallest allowed edit and verify it generalizes.
 
 ## Guardrails
 
-- Optimize for signal, preserve what works, and ignore one-off noise.
-- Tighten triggers, scope, and wording before adding process or rewriting structure.
-- Do not make triggers so broad that the skill becomes noisy.
-- Do not make wording so narrow that the skill stops generalizing.
+- Preserve what works; tighten triggers, scope, or wording before adding process or changing structure.
+- Keep triggers narrow enough to avoid noise and broad enough to generalize.
 - Do not include repository names, code snippets, tokens, secrets, credentials, internal URLs, private identifiers, or sensitive implementation details.
-- Describe patterns rather than incidents; use only generic, sanitized examples when needed.
-- Keep meaningful changes visible to the user and stay within the allowed paths.
+- Describe patterns, not incidents; use only sanitized examples, keep changes visible, and stay within the allowlist.
 
 ## Output Standard
 
-- Name the generalized failure mode, target skill, allowed path, intended adjustment, and confirmation state.
-- Explain why the change is narrow and sufficient; note any uncertainty worth watching.
+- Name the failure mode, target, allowed path, adjustment, confirmation state, why it is sufficient, and any uncertainty worth watching.

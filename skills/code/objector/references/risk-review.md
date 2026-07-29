@@ -19,7 +19,7 @@
 - API and client compatibility: old clients, versioned contracts, response shape changes, removed fields, changed semantics, backward compatibility, and multi-version rollout.
 - Rollout and rollback: feature flags, staged release, revert path, downgrade safety, data rollback limits, migration reversibility, and kill switches.
 - Observability and operations: logs, metrics, alerts, auditability, support diagnosis, runbooks, and whether failure can be detected quickly.
-- Dependency and supply-chain risk: new packages, version compatibility, current project support, lockfile impact, maintainer health, security advisories, and transitive risk.
+- Build versus reuse: compare standard or current project capability, installed dependencies, mature stable compatible libraries, and custom code on correctness, evidence quality, compatibility, maintenance, license, bundle and lockfile impact, security, and supply-chain cost; challenge the higher-cost option.
 - Edge and abuse cases: concurrency, retries, timeouts, clock/timezone, locale, huge or empty inputs, malformed state, abuse paths, and denial-of-service angles.
 
 ## Evidence Standard

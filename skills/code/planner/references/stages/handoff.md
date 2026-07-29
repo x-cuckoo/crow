@@ -1,10 +1,7 @@
 # Handoff
 
-- Summarize the current flow.
-- Name the files that should change.
-- State the intended behavior change, not just the code touch points.
-- State what still needs validation during implementation.
+- Summarize the current flow, evidence versus assumptions and user decisions, files to change, intended behavior, scenario boundaries, and implementation-time validation.
+- Match each validation claim to the cheapest evidence that can prove it; claims about external runtime semantics require a controlled real dependency or scoped conformance evidence, not mock behavior alone.
 - For non-trivial, cross-boundary, user-proposed, uncertain, or materially risky plans, invoke `crow-code-objector` before user review.
-- Apply the objector result before user review: stop on `Block`, revise the plan for `Proceed with changes`, and proceed unchanged only for `Proceed as planned`.
-- Present the plan for user review and wait for approval before execution starts.
-- After any correction or change request, immediately present the full consolidated plan, not only the delta, and repeat review; only explicit approval of that version permits execution.
+- Apply and summarize the verdict before user review: stop on `Block`, revise for `Proceed with changes`, and keep the plan only for `Proceed as planned`.
+- Present the full consolidated plan for review. After any correction, present it again; execute only after explicit approval of the latest version.

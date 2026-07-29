@@ -1,13 +1,18 @@
 ---
 name: crow-code-planner
-description: Planner for coding work. Invoke proactively to understand code, trace behavior across files or repos, choose edit surfaces, make implementation plans, research technical direction with web/open-source/community evidence, or explain sources of fields, flags, routes, and dependencies. Do not wait for the user to name this skill.
+description: Planner for coding work. Invoke proactively for cross-file or cross-boundary changes, source tracing, implementation plans, or uncertain technical direction that benefits from web, open-source, or community evidence. Do not wait for the user to name this skill.
 ---
 
 # Planner
 
-Use this skill before editing when the task crosses files, layers, packages, or repos.
+Use this skill for non-trivial planning, source tracing, or technical decisions. Reuse unchanged references already loaded; reload only when their source or the task scope changes.
 
-## Workflow
+## Routing
+
+- For explanation-only source tracing, read [references/stages/recon.md](references/stages/recon.md). Also load research guidance when external evidence can improve the answer.
+- For implementation or mixed tasks, follow the planning workflow.
+
+## Planning Workflow
 
 1. Read [references/stages/frame.md](references/stages/frame.md) to define the target, constraints, assumptions, and success criteria.
 2. Read [references/stages/recon.md](references/stages/recon.md) to map the current behavior and evidence.
@@ -20,11 +25,4 @@ Execution begins only after explicit user approval of the latest plan.
 
 - Read [references/behaviors/challenge-proposals.md](references/behaviors/challenge-proposals.md) when a proposed design already exists.
 - Read [references/behaviors/parallel-recon.md](references/behaviors/parallel-recon.md) when at least two independent, material investigations can run concurrently.
-- Read [references/behaviors/research-when-unsure.md](references/behaviors/research-when-unsure.md) when external evidence can improve the plan.
-
-## Plan Standard
-
-- Name the concrete change target, source-of-truth files, and edit surface.
-- Separate evidence, assumptions, and user decisions; call out scenario boundaries and hidden risk.
-- State how objector findings changed the plan, or why no change was needed.
-- Present the latest plan for user review.
+- Read [references/behaviors/research-when-unsure.md](references/behaviors/research-when-unsure.md) when external evidence can improve a plan or explanation, especially for generic build-versus-reuse decisions.

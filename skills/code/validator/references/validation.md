@@ -2,16 +2,15 @@
 
 ## What to run
 
-- Choose checks that prove the stated success criteria.
-- Lint or type-check the touched surface when cheap.
-- Run targeted tests if they already exist nearby.
-- For bug fixes, prefer a test or command that reproduces the failure, then confirm it passes after the fix.
-- For refactors, confirm behavior before and after when feasible.
-- For scripts or services, validate startup or argument parsing if that changed.
-- For routing or auth work, verify the request path and bypass conditions, not just the handler body.
+- Match checks to success criteria; for each non-trivial test or group, identify the claim and a representative failure it can detect.
+- Prefer the cheapest targeted lint, type, test, or runtime check near the changed surface.
+- For bugs, reproduce the failure before claiming the fix; for refactors, compare behavior before and after when feasible.
+- For changed scripts or services, check startup or arguments; for routing or auth, check the request path and bypass conditions.
 - Before expensive runtime validation, confirm the applicable target owner, command, surface, data route, and required services.
-- Use condition-based polling with a bounded deadline; retry the same no-progress result at most once when the operation can legitimately be slow.
-- After a second equivalent no-progress result, stop and diagnose the prerequisite or revise the validation route instead of repeating or broadening it.
+- Accept mocks, stubs, fakes, and emulators only within the semantics they explicitly exercise; they cannot prove unexercised external runtime behavior.
+- When material correctness depends on external semantics, require a controlled real dependency or scoped conformance evidence proportional to the risk.
+- If the required environment is unavailable, run useful lower-level checks but report only that criterion as blocked or unverified.
+- Poll by condition with a deadline; retry an equivalent no-progress result at most once, then diagnose prerequisites or revise the proof path.
 
 ## Pre-commit review
 
@@ -19,28 +18,15 @@ Run this after the executor completes the intended change set and before committ
 
 - Review the full diff, not each file in isolation.
 - Check scope: every changed line should trace to the request; flag unrelated refactors, formatting churn, debug code, temporary files, secrets, or generated noise.
-- Check behavior: the full path should be wired, not just locally edited.
-- For stateful behavior, check ownership and the full set/read/clear lifecycle, including repeated entry, stale data, and source-specific naming.
-- Check simplicity: ask whether the code can be smaller, clearer, or use existing seams; flag overbuilt flows, unnecessary abstractions, and cumbersome control paths.
-- Check impact and compatibility: impact should stay within intended scenarios; preserve public APIs, data shapes, migrations, flags, old clients, historical data, and existing behavior unless explicitly changed.
-- Check risk: boundaries, permissions, data, rollback, privacy, external contracts, and operational failure modes should not have obvious gaps.
-- Check maintainability: comments, complexity, duplication, and abstractions should fit the local style and task size.
-- Check naming specifically: changed names should be concise, clear, semantically precise, and appropriate to local conventions; flag vague names, misleading abbreviations, or names that need comments to explain them.
-- Check booleans specifically: conditions should read as clear domain predicates; flag generic `flag`/`status`/`done`/`check` names, double negatives, multi-purpose booleans, and positional boolean parameters that hide modes.
-- Check evidence: targeted tests, lint, type checks, runtime checks, or a clear reason they were skipped.
+- Check behavior: verify the full path. For stateful behavior, check ownership and the set/read/clear lifecycle, including repeated entry, stale data, and source-specific state.
+- Check simplicity and reuse: prefer smaller, clearer existing seams or supported mature libraries, but reject dependencies whose compatibility, maintenance, size, or supply-chain cost exceeds their benefit.
+- Check impact and compatibility: keep changes within intended scenarios and preserve APIs, data shapes, migrations, flags, old clients, historical data, and existing behavior unless explicitly changed.
+- Check risk: inspect boundaries, permissions, data, rollback, privacy, external contracts, and operational failure modes.
+- Check maintainability and naming: complexity, duplication, comments, abstractions, and changed names should fit local style; names must be concise, precise, and domain-meaningful. Booleans should read as predicates without generic `flag`, `status`, `done`, or `check` names, double negatives, multi-purpose values, or positional modes.
+- Check evidence: conclusions must not exceed the test setup; state the tested boundary, relevant checks, and residual production differences.
 - Check disclosure: sanitize command evidence and final summaries; do not expose secrets, credentials, private URLs, or sensitive identifiers unless the exact value is required and safe to share.
 - Check commit readiness: expected files are included, worktree state is understood, and the commit message can be a Conventional Commit message.
 
-## When full runtime validation is expensive
-
-- Validate the relevant code path.
-- Validate imports and types.
-- Validate nearby tests.
-- Say clearly what you did not run.
-
 ## Close-out standard
 
-- Explain the user-visible behavior change.
-- Mention the verification command or reason it was skipped.
-- Mention remaining risk boundaries, dependencies, flags, or environment requirements.
-- Distinguish verified behavior from assumed behavior.
+- State the user-visible change, verification command or skip reason, remaining risk or environment boundaries, and which behavior is verified versus assumed.

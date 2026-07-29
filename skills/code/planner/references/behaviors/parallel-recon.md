@@ -3,11 +3,7 @@
 Use this only when at least two independent, material evidence questions can run concurrently. Skip it for simple tasks or investigations with sequential dependencies.
 
 - Keep one planner responsible for synthesis, decisions, and the final plan.
-- Use at most three read-only sidecar agents with disjoint questions and minimal required context.
-- When orchestration exposes model selection, explicitly select a faster available model for bounded, read-only evidence collection; keep higher-capability models for synthesis, ambiguous work, and risk review. Otherwise inherit the default model.
-- Ask sidecars for evidence, boundaries, and uncertainty, not complete plans or preferred conclusions.
-- Do not allow sidecars to delegate further.
-- Keep the immediate critical path local and continue non-overlapping work while sidecars run.
-- Use one bounded wait for the sidecar set only when its results become necessary; do not poll individual agents repeatedly.
-- Reconcile conflicting evidence before drafting one consolidated plan.
-- Run objector review only after synthesis, then present the resulting plan for user approval.
+- Use at most three read-only sidecars with disjoint questions and minimal context. When model selection is available, prefer a faster model for bounded evidence collection and a stronger model for synthesis, ambiguity, and risk review.
+- Request evidence, boundaries, and uncertainty, not plans or conclusions; forbid further delegation.
+- Keep the critical path local, continue non-overlapping work, and wait once for the set only when needed.
+- Reconcile conflicts into one plan, run objector review after synthesis, then seek user approval.
