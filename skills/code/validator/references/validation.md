@@ -23,6 +23,7 @@ Run this after the executor completes the intended change set and before committ
 - Check impact and compatibility: keep changes within intended scenarios and preserve APIs, data shapes, migrations, flags, old clients, historical data, and existing behavior unless explicitly changed.
 - Check risk: inspect boundaries, permissions, data, rollback, privacy, external contracts, and operational failure modes.
 - Check maintainability and naming: complexity, duplication, comments, abstractions, and changed names should fit local style; names must be concise, precise, and domain-meaningful. Booleans should read as predicates without generic `flag`, `status`, `done`, or `check` names, double negatives, multi-purpose values, or positional modes.
+- Check variable semantics: type compatibility is insufficient; assigned values must fit the variable's named role and scope. Flag hidden second meanings or implicit sentinel states introduced only to minimize code or diff size.
 - Check evidence: conclusions must not exceed the test setup; state the tested boundary, relevant checks, and residual production differences.
 - Check disclosure: sanitize command evidence and final summaries; do not expose secrets, credentials, private URLs, or sensitive identifiers unless the exact value is required and safe to share.
 - Check commit readiness: expected files are included, worktree state is understood, and the commit message can be a Conventional Commit message.

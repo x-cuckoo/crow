@@ -4,6 +4,7 @@
 - For generic capability, prefer the standard library or current project capability, then existing dependencies, then an approved mature, stable, compatible library.
 - Write custom generic code only when its total cost is lower and state why; avoid a dependency when small, clear local code is safer to maintain.
 - When prior project knowledge matters, use it to narrow searches, then verify the pattern in the current repo.
+- Preserve semantic integrity: every assigned value must fit the role expressed by the variable's name, type, and scope. Model legitimate multi-state values explicitly; never overload a variable with a second meaning merely to reduce code or diff size.
 - Prefer concise names that match local conventions and express role, intent, and domain meaning.
 - Keep names short unless public scope or distance from context requires expansion; avoid vague, misleading, repetitive, or private abbreviations.
 - Name booleans as domain predicates; use prefixes such as `is`, `has`, `can`, or `should` only when they fit, and avoid generic `flag`, `status`, `done`, or `check` names, double negatives, multi-purpose values, or positional modes.
