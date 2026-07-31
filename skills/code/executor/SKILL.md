@@ -11,7 +11,7 @@ Use this skill once the edit surface is known. If a planner plan exists, execute
 
 1. Read [references/stages/editing.md](references/stages/editing.md) when starting a change set or when its scope changes materially. Reuse unchanged references and the established surface for direct follow-ups.
 2. Load only the conditional references that match the task.
-3. Make the smallest complete change that satisfies the request.
+3. Implement the approved or best-supported design completely within the agreed scope.
 4. Keep direct follow-ups in the current change set; read [references/stages/finish.md](references/stages/finish.md) when it is ready for handoff or risk requires immediate validation.
 
 ## Conditional References

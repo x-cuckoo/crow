@@ -19,7 +19,9 @@ Run this after the executor completes the intended change set and before committ
 - Review the full diff, not each file in isolation.
 - Check scope: every changed line should trace to the request; flag unrelated refactors, formatting churn, debug code, temporary files, secrets, or generated noise.
 - Check behavior: verify the full path. For stateful behavior, check ownership and the set/read/clear lifecycle, including repeated entry, stale data, and source-specific state.
-- Check simplicity and reuse: prefer smaller, clearer existing seams or supported mature libraries, but reject dependencies whose compatibility, maintenance, size, or supply-chain cost exceeds their benefit.
+- Check design quality: when multiple paths are viable, the chosen path should optimize correctness, cohesion, coupling, boundaries, traceability, testability, maintenance, cognitive load, and proportional complexity; line count, diff size, and delivery speed are only tie-breakers.
+- Check abstraction: every layer must isolate a real responsibility, boundary, or stable variation point and reduce total cost. Flag compressed coupling, pass-through layers, unsupported extension points, and abstraction for appearance.
+- Check reuse: prefer supported mature libraries when they improve total quality, but reject dependencies whose compatibility, maintenance, size, or supply-chain cost exceeds their benefit.
 - Check impact and compatibility: keep changes within intended scenarios and preserve APIs, data shapes, migrations, flags, old clients, historical data, and existing behavior unless explicitly changed.
 - Check risk: inspect boundaries, permissions, data, rollback, privacy, external contracts, and operational failure modes.
 - Check maintainability and naming: complexity, duplication, comments, abstractions, and changed names should fit local style; names must be concise, precise, and domain-meaningful. Booleans should read as predicates without generic `flag`, `status`, `done`, or `check` names, double negatives, multi-purpose values, or positional modes.

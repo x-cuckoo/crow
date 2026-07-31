@@ -11,7 +11,8 @@
 
 ## Review Axes
 
-- Design integrity: responsibility splits, coupling, invariants, state model, sequencing, transactional boundaries, idempotency, and whether the design is the safest reversible shape for the requirement.
+- Design integrity: compare viable responsibility splits on cohesion, coupling, explicit boundaries, traceability, proportional complexity, invariants, state model, sequencing, transactional boundaries, and idempotency; challenge choices driven mainly by line count, diff size, or delivery speed, and prefer the safest reversible fit.
+- Abstraction discipline: require every abstraction to isolate a real responsibility, boundary, or stable variation point and reduce total cognitive or change cost; reject compressed coupling and speculative, pass-through, or ornamental layers.
 - Boundary and ownership: crossed repos, services, modules, trust boundaries, data flows, external callers, feature gates, and no-touch areas.
 - Permissions and authority: authn/authz, role checks, service credentials, least privilege, elevation paths, tenant isolation, secrets, and sensitive data access.
 - Blast radius and user impact: affected users, tenants, traffic paths, background jobs, queues, caches, rate limits, failure amplification, and degraded-mode behavior.

@@ -16,7 +16,7 @@ Use this skill for non-trivial planning, source tracing, or technical decisions.
 
 1. Read [references/stages/frame.md](references/stages/frame.md) to define the target, constraints, assumptions, and success criteria.
 2. Read [references/stages/recon.md](references/stages/recon.md) to map the current behavior and evidence.
-3. Read [references/stages/decide.md](references/stages/decide.md) to choose the smallest coherent edit surface.
+3. Read [references/stages/decide.md](references/stages/decide.md) to choose the best coherent edit surface for the actual constraints.
 4. Read [references/stages/handoff.md](references/stages/handoff.md) to apply objector findings and run the user approval loop.
 
 Execution begins only after explicit user approval of the latest plan.
