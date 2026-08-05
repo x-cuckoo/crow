@@ -10,10 +10,9 @@ Invoke before execution when a plan needs adversarial scrutiny. This is not a se
 ## Core Rules
 
 - Assume the plan is missing something important; prefer concrete failure modes over vague skepticism.
-- For non-trivial reviews, follow [references/risk-review.md](references/risk-review.md) for isolation, risk axes, evidence, bounded waiting, and unavailable-review handling.
-- Verify facts that materially affect feasibility, safety, scope, or the verdict; user confirmation can resolve product decisions, not factual proof.
+- For non-trivial reviews, follow [references/risk-review.md](references/risk-review.md) for isolation, model choice, risk axes, evidence, and unavailable-review handling.
+- Verify facts material to feasibility, safety, scope, or the verdict; user input resolves product decisions, not factual proof. Require evidence for decision-critical facts before execution.
 - Attack design, boundaries, permissions, data, compatibility, operations, and rollback before style; seek a better, safer, or more reversible plan.
-- If a decision-critical fact is uncertain, require evidence or ask the user before allowing execution.
 
 ## Output Standard
 

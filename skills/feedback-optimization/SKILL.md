@@ -21,7 +21,7 @@ Everything else is out of scope, including `AGENTS.md`, project files, installer
 ## Sensing
 
 - Track repeated corrections, friction, mis-triggering, overreach, and vague wording.
-- Treat two similar signals as strong evidence; ignore one-offs and propose an optimization proactively once the pattern is clear.
+- Treat two similar signals as strong evidence. Generalize an isolated signal only when severe or clearly structural, and still abstract it into a privacy-safe pattern within the allowlist.
 
 ## Workflow
 
@@ -34,8 +34,7 @@ Everything else is out of scope, including `AGENTS.md`, project files, installer
 
 - Preserve what works; tighten triggers, scope, or wording before adding process or changing structure.
 - Keep triggers narrow enough to avoid noise and broad enough to generalize.
-- Do not include repository names, code snippets, tokens, secrets, credentials, internal URLs, private identifiers, or sensitive implementation details.
-- Describe patterns, not incidents; use only sanitized examples, keep changes visible, and stay within the allowlist.
+- Describe reusable patterns, not incidents; omit repository names, code snippets, tokens or credentials, internal URLs, private identifiers, and sensitive details. Use sanitized examples and stay visibly within the allowlist.
 
 ## Output Standard
 

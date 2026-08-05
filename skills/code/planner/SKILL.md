@@ -1,6 +1,6 @@
 ---
 name: crow-code-planner
-description: Planner for coding work. Invoke proactively for cross-file or cross-boundary changes, source tracing, implementation plans, or uncertain technical direction that benefits from web, open-source, or community evidence. Do not wait for the user to name this skill.
+description: Planner for coding work. Invoke proactively for cross-file or cross-boundary changes, non-trivial source tracing, implementation plans, or uncertain technical direction that benefits from web, open-source, or community evidence. Do not wait for the user to name this skill.
 ---
 
 # Planner
@@ -9,7 +9,7 @@ Use this skill for non-trivial planning, source tracing, or technical decisions.
 
 ## Routing
 
-- For explanation-only source tracing, read [references/stages/recon.md](references/stages/recon.md). Also load research guidance when external evidence can improve the answer.
+- For explanation-only source tracing, read [references/stages/recon.md](references/stages/recon.md).
 - For implementation or mixed tasks, follow the planning workflow.
 
 ## Planning Workflow
@@ -25,4 +25,4 @@ Execution begins only after explicit user approval of the latest plan.
 
 - Read [references/behaviors/challenge-proposals.md](references/behaviors/challenge-proposals.md) when a proposed design already exists.
 - Read [references/behaviors/parallel-recon.md](references/behaviors/parallel-recon.md) when at least two independent, material investigations can run concurrently.
-- Read [references/behaviors/research-when-unsure.md](references/behaviors/research-when-unsure.md) when external evidence can improve a plan or explanation, especially for generic build-versus-reuse decisions.
+- Read [references/behaviors/research-when-unsure.md](references/behaviors/research-when-unsure.md) when unfamiliar technology, current ecosystem facts, or build-versus-reuse could materially affect a plan or explanation.
