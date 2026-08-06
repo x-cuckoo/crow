@@ -12,6 +12,7 @@ Use this skill after implementation. Use `crow-code-objector` for adversarial pl
 - Treat the completed change set and its success criteria as the validation boundary.
 - During follow-up edits, use cheap targeted checks; review the full diff when the set is complete, commit is requested, or risk warrants it.
 - Read [references/validation.md](references/validation.md), prefer targeted proof, and separate confirmed from assumed behavior.
+- Read [references/visual-validation.md](references/visual-validation.md) when acceptance depends on rendered appearance, layout, scrolling, or motion.
 
 ## Output Standard
 

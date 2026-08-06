@@ -2,11 +2,12 @@
 
 ## Isolation
 
-- Use exactly one fresh, context-isolated reviewer whenever the capability is available.
+- Use exactly one fresh, context-isolated reviewer for the consolidated plan or material risk boundary whenever the capability is available.
 - Give the reviewer only the proposed plan, requirements, relevant evidence, constraints, and verification expectations.
 - Do not pass prior reasoning, preferred conclusions, confidence claims, hidden assumptions, or suggested objections.
 - Do not allow the reviewer to delegate or create another review layer.
 - When model selection is available, use the fastest model that meets the plan's context and review-capability needs; use a stronger model for material risk, complexity, or ambiguity.
+- Reuse the verdict while the reviewed contract, evidence, constraints, feasibility, and risk remain unchanged; re-review only after a material change.
 - Wait at most once for that reviewer; do not busy-poll or spawn replacements. If the tool requires a timeout, size it to the task and tool rather than applying a fixed global duration.
 - If no result returns, report independent review unavailable. Ask the user before a high-risk plan proceeds; for lower-risk plans, an internal adversarial pass may be used only when labeled as non-independent.
 

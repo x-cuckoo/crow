@@ -7,6 +7,7 @@
 - For bugs, reproduce the failure before claiming the fix; for refactors, compare behavior before and after when feasible.
 - For changed scripts or services, check startup or arguments; for routing or auth, check the request path and bypass conditions.
 - Before expensive runtime validation, confirm the applicable target owner, command, surface, data route, and required services.
+- If the canonical command is unavailable, resolve the project's runtime or package-manager path before bypassing wrappers. Use a lower-level runner only when project configuration, environment, setup, and test-selection semantics remain equivalent.
 - Accept mocks, stubs, fakes, and emulators only within the semantics they explicitly exercise; they cannot prove unexercised external runtime behavior.
 - When material correctness depends on external semantics, require a controlled real dependency or scoped conformance evidence proportional to the risk.
 - If the required environment is unavailable, run useful lower-level checks but report only that criterion as blocked or unverified.
