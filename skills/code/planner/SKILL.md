@@ -27,3 +27,4 @@ Execution begins only after explicit user approval of the latest plan.
 - Read [references/behaviors/multi-source-state.md](references/behaviors/multi-source-state.md) when behavior combines multiple sources, asynchronous responses, caching, or state lifecycle.
 - Read [references/behaviors/parallel-recon.md](references/behaviors/parallel-recon.md) when at least two independent, material investigations can run concurrently.
 - Read [references/behaviors/research-when-unsure.md](references/behaviors/research-when-unsure.md) when unfamiliar technology, current ecosystem facts, or build-versus-reuse could materially affect a plan or explanation.
+- Read [references/behaviors/test-planning.md](references/behaviors/test-planning.md) when implementation requires behavioral tests or runtime validation.

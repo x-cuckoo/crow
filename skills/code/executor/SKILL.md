@@ -19,6 +19,6 @@ Use this skill once the edit surface is known. If a planner plan exists, execute
 - Read [references/behaviors/scope-control.md](references/behaviors/scope-control.md) when one scenario must change and others must not.
 - Read [references/behaviors/code-size-and-splitting.md](references/behaviors/code-size-and-splitting.md) when adding multiple phases or state transitions, nesting beyond two levels, extending code near project size limits, or deciding where to split code.
 - Read [references/behaviors/commit.md](references/behaviors/commit.md) when the task includes a commit.
-- Read [references/behaviors/test-evidence.md](references/behaviors/test-evidence.md) when adding, changing, or choosing tests or verification.
+- Read [references/behaviors/test-evidence.md](references/behaviors/test-evidence.md) before proposing, creating, changing, selecting for execution, or running behavioral tests or runtime validation.
 - Read [references/tasks/backend-api-auth.md](references/tasks/backend-api-auth.md) for backend API or auth changes.
 - Read [references/tasks/bootstrap-scaffolding.md](references/tasks/bootstrap-scaffolding.md) for new project or local service setup.

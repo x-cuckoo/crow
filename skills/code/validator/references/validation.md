@@ -2,6 +2,9 @@
 
 ## What to run
 
+- Before selecting or running a behavioral test or starting its runtime environment, require an explicitly approved test plan. Without one, inspect only to propose the plan, then wait; an approved implementation plan containing it is sufficient.
+- Execute only the approved scenarios and setup. Re-submit changes to test level, dependency, data scope, mutation behavior, expected observable, cleanup, or scenarios; command-path corrections that preserve the claim and setup may proceed.
+- Cheap side-effect-free static checks such as diff checks, type checks, lint, and formatting remain automatic.
 - Match checks to success criteria; for each non-trivial test or group, identify the claim and a representative failure it can detect.
 - Prefer the cheapest targeted lint, type, test, or runtime check near the changed surface.
 - For bugs, reproduce the failure before claiming the fix; for refactors, compare behavior before and after when feasible.
@@ -10,7 +13,8 @@
 - If the canonical command is unavailable, resolve the project's runtime or package-manager path before bypassing wrappers. Use a lower-level runner only when project configuration, environment, setup, and test-selection semantics remain equivalent.
 - Accept mocks, stubs, fakes, and emulators only within the semantics they explicitly exercise; they cannot prove unexercised external runtime behavior.
 - When material correctness depends on external semantics, require a controlled real dependency or scoped conformance evidence proportional to the risk.
-- If the required environment is unavailable, run useful lower-level checks but report only that criterion as blocked or unverified.
+- If the required environment is unavailable, run useful lower-level checks but report only that criterion as blocked or unverified. Ask the user to provide the environment, narrow the claim, accept it as unverified, or defer the change; do not substitute mocks.
+- Treat failed or unverified cleanup as incomplete validation, not a pass.
 - Poll by condition with a deadline; retry an equivalent no-progress result at most once, then diagnose prerequisites or revise the proof path.
 
 ## Pre-commit review
