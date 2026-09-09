@@ -6,10 +6,11 @@
 - Give the reviewer only the proposed plan, requirements, relevant evidence, constraints, and verification expectations.
 - Do not pass prior reasoning, preferred conclusions, confidence claims, hidden assumptions, or suggested objections.
 - Do not allow the reviewer to delegate or create another review layer.
-- When model selection is available, use the fastest model that meets the plan's context and review-capability needs; use a stronger model for material risk, complexity, or ambiguity.
+- Use an explicit low-latency reviewer configuration rather than inheriting the parent model or reasoning effort. For the current Codex multi-agent model set, use `gpt-5.6-terra` with `low` reasoning effort; otherwise use the platform-designated fast or balanced review-capable model at low effort.
+- Keep the review bounded to the supplied plan and evidence. Permit only narrowly targeted read-only checks needed to decide a named risk; do not repeat broad reconnaissance, run tests, or design or implement the solution. Treat missing decision-critical evidence as an objection and use `Block` when feasibility or safety cannot be established.
 - Reuse the verdict while the reviewed contract, evidence, constraints, feasibility, and risk remain unchanged; re-review only after a material change.
-- Wait at most once for that reviewer; do not busy-poll or spawn replacements. If the tool requires a timeout, size it to the task and tool rather than applying a fixed global duration.
-- If no result returns, report independent review unavailable. Ask the user before a high-risk plan proceeds; for lower-risk plans, an internal adversarial pass may be used only when labeled as non-independent.
+- Give the reviewer a task-sized deadline capped at five minutes total wall-clock time from spawn. Wait at most once for the remaining budget; if the deadline expires while it is still running, interrupt or cancel it immediately. Do not busy-poll, extend, resume, or spawn a replacement.
+- If the explicit low-latency override is unavailable or no result returns by the deadline, report independent review unavailable rather than silently inheriting a slower configuration. Ask the user before a high-risk plan proceeds; for lower-risk plans, an internal adversarial pass may be used only when labeled as non-independent.
 
 ## Review Axes
 

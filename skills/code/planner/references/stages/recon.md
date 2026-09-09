@@ -28,7 +28,9 @@ Start at the consuming boundary:
 ## Cross-repo checks
 
 - For upgraded or pinned dependencies, inspect both the consumer diff and the package surface.
-- Search sibling repos intentionally instead of drifting across the filesystem.
+- Treat a named sibling or reference repository as read-only design evidence by default, not permission to add a compile-time or runtime dependency, copy credentials, or rely on its checkout path. Extract the relevant behavior and responsibility split, adapt them locally, and explicitly propose any dependency or sensitive-data reuse for approval.
+- When inserting a new producer or implementation into an existing pipeline, identify the exact stage being replaced and trace the contracts on both sides: upstream inputs, preserved downstream transforms and wrappers, user-visible output, errors, retries, and observability. Do not replace downstream protocol semantics merely because the data source changed.
+- Search sibling repos intentionally instead of drifting across the filesystem, and state material deviations from the reference implementation.
 
 ## Common traps
 
