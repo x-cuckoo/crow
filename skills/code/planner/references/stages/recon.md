@@ -5,6 +5,7 @@ Map current behavior before explaining it or choosing an edit surface.
 ## Trace the flow
 
 - Start with user-supplied runtime evidence, named reference implementations, or requested local sources when they can answer directly; do not substitute a broader source the user excluded.
+- For continued work, reuse established findings, source references, and retained results while they remain applicable. Reopen investigation only for a missing fact, conflicting evidence, or a relevant source change; limit freshness checks to mutable facts needed for the next action. Retain the minimal safe result or reference needed for an authorized next step so it does not require repeating discovery, and stop once its evidence needs are met.
 - Before using a field or signal in a plan, verify that the intended layer can actually access it.
 - Map cross-file or cross-layer behavior before editing.
 - Trace definitions before call sites for types, schemas, flags, props, and payloads.

@@ -3,7 +3,7 @@
 - Eliminate paths that fail correctness, explicit constraints, or required compatibility.
 - Compare viable paths on cohesion, coupling, responsibility boundaries, abstraction fit, isolation, traceability, testability, operability, maintenance, cognitive load, and accidental complexity.
 - Choose the best total design with proportional structural complexity. Use line count, diff size, and delivery speed only as tie-breakers between otherwise equivalent paths.
-- Every abstraction must isolate a real responsibility, boundary, or stable variation point and reduce total cognitive or change cost; otherwise keep the flow direct.
+- Before adding an abstraction or expanding an interface, inspect applicable existing paths and consumers and identify the concrete requirement or invariant they cannot satisfy. Add structure only when it closes that gap and reduces total cognitive or change cost; hypothetical reuse or generality alone is insufficient.
 - A smaller diff is not better when it gives an existing variable, field, or abstraction a second meaning; model distinct concepts explicitly.
 - For generic capability, compare the standard library or current project capability, existing dependencies, mature stable compatible open-source libraries, and custom code on correctness, maintenance, compatibility, security, size, and adoption cost. Prefer them in that order unless total cost proves otherwise.
 - If multiple repos are involved, identify which repo owns the behavior and which repos only adapt or consume it.
