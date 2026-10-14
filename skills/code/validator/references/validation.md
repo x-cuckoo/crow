@@ -2,7 +2,7 @@
 
 ## What to run
 
-- Before selecting or running a behavioral test or starting its runtime environment, require an explicitly approved test plan. Without one, inspect only to propose the plan, then wait; an approved implementation plan containing it is sufficient.
+- Honor an explicit runtime-validation skip with the agreed static review and an evidence-gap report. Otherwise, require an approved test plan before behavioral tests or runtime setup; an approved implementation plan containing it is sufficient. Without approval, only inspect tests and environments.
 - Execute only the approved scenarios and setup. Re-submit changes to test level, dependency, data scope, mutation behavior, expected observable, cleanup, or scenarios; command-path corrections that preserve the claim and setup may proceed.
 - Cheap side-effect-free static checks such as diff checks, type checks, lint, and formatting remain automatic.
 - Match checks to success criteria; for each non-trivial test or group, identify the claim and a representative failure it can detect.
@@ -23,9 +23,9 @@
 Run this after the executor completes the intended change set and before committing.
 
 - Review the full diff, not each file in isolation.
-- Check scope: every changed line should trace to the request; flag unrelated refactors, formatting churn, debug code, temporary files, secrets, or generated noise.
+- Check scope: every changed line should be necessary for the agreed task. Flag unapproved defensive behavior or restrictions, even if beneficial, alongside unrelated refactors, formatting churn, debug code, temporary files, secrets, or generated noise.
 - Check behavior: verify the full path. For stateful behavior, check ownership and the set/read/clear lifecycle, including repeated entry, stale data, and source-specific state.
-- Check pipeline seams: when one producer or stage changes, verify the approved upstream inputs and preserved downstream adapters, transforms, wrappers, errors, retries, observability, and user-visible output.
+- Check replacement contracts: verify only agreed behavior changed, including data transforms and wrappers; completion and errors reach downstream callers; retries, side effects, observability, and user-visible output remain consistent with the plan.
 - Check design quality: when multiple paths are viable, the chosen path should optimize correctness, cohesion, coupling, boundaries, traceability, testability, maintenance, cognitive load, and proportional complexity; line count, diff size, and delivery speed are only tie-breakers.
 - Check abstraction: every layer must isolate a real responsibility, boundary, or stable variation point and reduce total cost. Flag compressed coupling, pass-through layers, unsupported extension points, and abstraction for appearance.
 - Check logical size and splitting: follow project limits first. Otherwise use roughly 50 and 100 logical function lines, more than two nested control-flow levels, and roughly 500 and 800 lines in behavior-bearing production files as increasingly strong review prompts, never automatic violations. Require a cohesive split-or-keep rationale; flag overloaded units, fragmentation, and unrelated legacy cleanup.

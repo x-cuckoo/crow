@@ -9,7 +9,7 @@ Invoke before execution when unresolved uncertainty or failure cost makes indepe
 
 ## Core Rules
 
-- Assume the plan is missing something important; prefer concrete failure modes over vague skepticism.
+- Require changes only for concrete failures of agreed requirements or established constraints. Present optional hardening separately as suggestions; it must not affect the verdict or become an implementation requirement without user acceptance.
 - For independent reviews, follow [references/risk-review.md](references/risk-review.md) for isolation, reuse, model choice, risk axes, evidence, and unavailable-review handling.
 - Verify facts material to feasibility, safety, scope, or the verdict; user input resolves product decisions, not factual proof. Require evidence for decision-critical facts before execution.
 - Attack design, boundaries, permissions, data, compatibility, operations, and rollback before style; seek a better, safer, or more reversible plan.

@@ -1,7 +1,7 @@
 # Test Planning
 
-- Before plan approval, list every proposed behavioral test or test group. Read-only discovery of existing tests and environments is allowed; without an approved test plan, no test may be created, changed, selected for execution, or run.
-- For each entry, state the claim or risk, test level and rationale, environment and real dependencies, fixture ownership and isolation, preconditions, input and action, expected observable output or state, representative failure, command, deadline and retry policy, side effects and cleanup, and evidence boundary.
+- Honor an explicit runtime-validation skip: plan only the agreed static review and state the evidence gap. Otherwise, list proposed behavioral tests before plan approval; without an approved test plan, only read-only discovery of tests and environments is allowed.
+- Keep each test entry proportional to risk: state the claim, setup and command, expected observable, and evidence boundary. Expand dependency, data isolation, side-effect, cleanup, deadline, and retry details where they affect safety, cost, or validity; omit irrelevant checklist fields.
 - Use unit tests for owned logic, real integration tests when one boundary's semantics are the claim, and real E2E when a user-visible workflow or coordination across multiple boundaries is the claim. Choose the highest-value feasible evidence, not a fixed E2E ratio.
 - For material protocol, persistence, transaction, timing, concurrency, browser, or service behavior, prefer a controlled production-representative dependency over mocks or in-memory substitutes.
 - Use controlled isolated data and deterministic cleanup. Production or shared-environment mutation requires separate explicit approval and is not ordinary test evidence.

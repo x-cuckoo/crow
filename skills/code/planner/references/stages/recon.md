@@ -29,7 +29,7 @@ Start at the consuming boundary:
 
 - For upgraded or pinned dependencies, inspect both the consumer diff and the package surface.
 - Treat a named sibling or reference repository as read-only design evidence by default, not permission to add a compile-time or runtime dependency, copy credentials, or rely on its checkout path. Extract the relevant behavior and responsibility split, adapt them locally, and explicitly propose any dependency or sensitive-data reuse for approval.
-- When inserting a new producer or implementation into an existing pipeline, identify the exact stage being replaced and trace the contracts on both sides: upstream inputs, preserved downstream transforms and wrappers, user-visible output, errors, retries, and observability. Do not replace downstream protocol semantics merely because the data source changed.
+- When replacing a dependency or pipeline stage, compare current and replacement behavior: inputs, transforms and wrappers, completion signals (return values, promises, or callbacks), errors, retries, side effects, observability, and user-visible output. Distinguish intended changes from reference-specific policies or defaults; changing the implementation does not authorize changing those contracts.
 - Search sibling repos intentionally instead of drifting across the filesystem, and state material deviations from the reference implementation.
 
 ## Common traps

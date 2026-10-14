@@ -5,8 +5,8 @@ Use this when adding, changing, or choosing tests or verification. A test is wor
 ## Approval Gate
 
 - Before creating, changing, selecting for execution, or running a behavioral test or starting its runtime environment, present a test plan and obtain explicit user approval. An approved implementation plan containing the complete test plan satisfies this gate.
-- Without approval, inspect existing tests and environments only to form the plan; do not modify or execute them.
-- For each test or group, state the claim or risk, level and rationale, environment and real dependencies, fixture ownership and isolation, preconditions, input and action, expected observable output or state, representative failure, command, deadline and retry policy, side effects and cleanup, and evidence boundary.
+- Without approval, only inspect tests and environments. If runtime validation was explicitly skipped, perform the agreed static review and report the gap instead of proposing it again.
+- Keep the plan proportional to risk: claim, setup and command, expected observable, and evidence boundary; expand dependency, data isolation, side-effect, cleanup, deadline, and retry details only where material.
 - Re-submit the plan when scenarios, test level, dependency, data scope, mutation behavior, expected observable, or cleanup changes. A command-path correction that preserves the approved claim and setup may proceed.
 - Cheap side-effect-free static checks such as diff checks, type checks, lint, and formatting do not require this approval.
 
