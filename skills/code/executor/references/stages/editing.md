@@ -1,6 +1,6 @@
 # Editing
 
-- Implement at natural seams and match local style and architecture; prefer cohesive responsibilities, low coupling, explicit boundaries, and a traceable flow over fewer lines or files.
+- Make code easy for the user and future human or AI collaborators to read and change: expose intent, control flow, data changes, and responsibility boundaries in the code itself. Match local conventions and split at natural seams; do not trade clarity for brevity or extra layers.
 - Add structure or behavior only as needed for the agreed task and its affected existing contracts. Do not silently add guards, filters, limits, fallbacks, or compatibility paths merely to be safer; propose out-of-scope improvements and wait for acceptance before implementing them.
 - For generic capability, prefer the standard library or current project capability, then existing dependencies, then an approved mature, stable, compatible library.
 - Write custom generic code only when its total cost is lower and state why; avoid a dependency when small, clear local code is safer to maintain.
@@ -9,8 +9,7 @@
 - Do not introduce imports, runtime paths, install-time coupling, or asset reads from a sibling checkout, user-specific absolute path, or reference repository unless the latest approved plan names that dependency and the supported build and deployment environment provides it. Adapt the behavior locally or use an approved package-owned surface.
 - When replacing a dependency or pipeline stage, implement only the agreed behavioral differences and preserve upstream and downstream contracts. Adapt reference-specific policies or defaults to the task; carry completion and errors through to downstream effects rather than stopping at the new producer's return value.
 - Preserve semantic integrity: every assigned value must fit the role expressed by the variable's name, type, and scope. Model legitimate multi-state values explicitly; never overload a variable with a second meaning merely to reduce code or diff size.
-- Prefer concise names that match local conventions and express role, intent, and domain meaning.
-- Keep names short unless public scope or distance from context requires expansion; avoid vague, misleading, repetitive, or private abbreviations.
+- Use clear, domain-meaningful names that match local conventions, with enough context for their scope. Prefer brevity only when meaning remains clear; avoid vague names, repetition, and private abbreviations.
 - Name booleans as domain predicates; use prefixes such as `is`, `has`, `can`, or `should` only when they fit, and avoid generic `flag`, `status`, `done`, or `check` names, double negatives, multi-purpose values, or positional modes.
 - Keep comments concise and limited to non-obvious intent, constraints, edge cases, external contracts, or surprising tradeoffs; remove stale comments touched by the change.
 - Abstract only when it isolates a real responsibility, boundary, or stable variation point and lowers total cognitive or change cost; otherwise keep the flow direct.
