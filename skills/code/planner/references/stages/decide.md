@@ -2,7 +2,7 @@
 
 - Eliminate paths that fail correctness, explicit constraints, or required compatibility.
 - Among viable paths, make collaborators' ability to understand, review, and continue the work the primary design goal. This includes the user and future human or AI collaborators who lack the author's conversation context.
-- Use cohesion, low coupling, clear boundaries, and proportional abstraction to reduce comprehension and maintenance cost. Line count, diff size, and delivery speed are only tie-breakers between otherwise equivalent paths.
+- Balance code volume, concision, and cognitive load: consider reading volume, logic density, navigation, and state the reader must retain. Prefer the lowest total comprehension cost, not the shortest or most decomposed form. Diff size and delivery speed remain tie-breakers.
 - Before adding an abstraction or expanding an interface, inspect applicable existing paths and consumers and identify the concrete requirement or invariant they cannot satisfy. Add structure only when it closes that gap and reduces total cognitive or change cost; hypothetical reuse or generality alone is insufficient.
 - A smaller diff is not better when it gives an existing variable, field, or abstraction a second meaning; model distinct concepts explicitly.
 - For generic capability, compare the standard library or current project capability, existing dependencies, mature stable compatible open-source libraries, and custom code on correctness, maintenance, compatibility, security, size, and adoption cost. Prefer them in that order unless total cost proves otherwise.

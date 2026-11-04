@@ -1,6 +1,6 @@
 # Editing
 
-- Make code easy for the user and future human or AI collaborators to read and change: expose intent, control flow, data changes, and responsibility boundaries in the code itself. Match local conventions and split at natural seams; do not trade clarity for brevity or extra layers.
+- Write for the user and future human or AI collaborators. Remove needless repetition, branches, and indirection; retain names and structure that clarify intent, flow, data changes, and responsibilities. Match local conventions and natural seams, balancing reading volume against dense expressions and fragmented flow rather than maximizing brevity or expansion.
 - Add structure or behavior only as needed for the agreed task and its affected existing contracts. Do not silently add guards, filters, limits, fallbacks, or compatibility paths merely to be safer; propose out-of-scope improvements and wait for acceptance before implementing them.
 - For generic capability, prefer the standard library or current project capability, then existing dependencies, then an approved mature, stable, compatible library.
 - Write custom generic code only when its total cost is lower and state why; avoid a dependency when small, clear local code is safer to maintain.
