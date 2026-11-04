@@ -16,6 +16,7 @@ Use this skill once the edit surface is known. If a planner plan exists, execute
 
 ## Conditional References
 
+- Use [references/languages/index.md](references/languages/index.md) when writing or modifying code; load only the entries matching the languages being changed.
 - Read [references/behaviors/scope-control.md](references/behaviors/scope-control.md) when one scenario must change and others must not.
 - Read [references/behaviors/code-size-and-splitting.md](references/behaviors/code-size-and-splitting.md) when adding multiple phases or state transitions, nesting beyond two levels, extending code near project size limits, or deciding where to split code.
 - Read [references/behaviors/commit.md](references/behaviors/commit.md) when the task includes a commit.
