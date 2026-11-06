@@ -1,0 +1,17 @@
+# Code Review
+
+Apply the checks relevant to the agreed scope and changed behavior.
+
+- Check scope: every changed line should be necessary for the agreed task. Flag unapproved defensive behavior or restrictions, even if beneficial, alongside unrelated refactors, formatting churn, debug code, temporary files, secrets, or generated noise.
+- Check behavior: verify the full path. For stateful behavior, check ownership and the set/read/clear lifecycle, including repeated entry, stale data, and source-specific state.
+- Check replacement contracts: verify only agreed behavior changed, including data transforms and wrappers; completion and errors reach downstream callers; retries, side effects, observability, and user-visible output remain consistent with the plan.
+- Check collaborative readability as the primary design criterion after correctness and explicit constraints: can collaborators understand the behavior without the author's conversation context? Weigh reading volume, logic density, navigation, and retained state together; flag needless verbosity, excessive compression, or fragmentation with concrete examples, while preserving useful explanatory structure.
+- Check abstraction: every layer must isolate a real responsibility, boundary, or stable variation point and reduce total cost. Flag compressed coupling, pass-through layers, unsupported extension points, and abstraction for appearance.
+- Check logical size and splitting: follow project limits first. Otherwise use roughly 50 and 100 logical function lines, more than two nested control-flow levels, and roughly 500 and 800 lines in behavior-bearing production files as increasingly strong review prompts, never automatic violations. Require a cohesive split-or-keep rationale; flag overloaded units, fragmentation, and unrelated legacy cleanup.
+- Check reuse: prefer supported mature libraries when they improve total quality, but reject dependencies whose compatibility, maintenance, size, or supply-chain cost exceeds their benefit.
+- Check repository and deployment ownership: reject unapproved imports, runtime paths, install-time coupling, or asset reads from sibling checkouts, reference repositories, and user-specific absolute paths. Every dependency must resolve from the supported package, repository, build, and deployment environment.
+- Check impact and compatibility: keep changes within intended scenarios and preserve APIs, data shapes, migrations, flags, old clients, historical data, and existing behavior unless explicitly changed.
+- Check risk: inspect boundaries, permissions, data, rollback, privacy, external contracts, and operational failure modes.
+- Check maintainability and naming: complexity, duplication, comments, abstractions, and changed names should fit local style; names must be clear, precise, and domain-meaningful, not shortened at the expense of meaning. Booleans should read as predicates without generic `flag`, `status`, `done`, or `check` names, double negatives, multi-purpose values, or positional modes.
+- Check variable semantics: type compatibility is insufficient; assigned values must fit the variable's named role and scope. Flag hidden second meanings or implicit sentinel states introduced only to minimize code or diff size.
+- Check disclosure: sanitize command evidence and final summaries; do not expose secrets, credentials, private URLs, or sensitive identifiers unless the exact value is required and safe to share.

@@ -1,6 +1,6 @@
 ---
 name: crow-feedback-optimization
-description: Improve crow-code-planner, crow-code-executor, crow-code-validator, and crow-code-objector during daily use. Invoke proactively when repeated corrections, missed intent, overreach, poor triggering, or low-value behavior reveals a reusable weakness. Do not wait for the user to request optimization. Propose a privacy-safe, minimal change and ask before editing unless already requested. Never modify files outside those four skills.
+description: Improve crow-code-planner, crow-code-executor, crow-code-reviewer, crow-code-validator, and crow-code-objector during daily use. Invoke proactively when repeated corrections, missed intent, overreach, poor triggering, or low-value behavior reveals a reusable weakness. Do not wait for the user to request optimization. Propose a privacy-safe, minimal change and ask before editing unless already requested. Never modify files outside those five skills.
 ---
 
 # Feedback Optimization
@@ -13,6 +13,7 @@ Allowed write targets:
 
 - `crow-code-planner` -> `skills/code/planner/`
 - `crow-code-executor` -> `skills/code/executor/`
+- `crow-code-reviewer` -> `skills/code/reviewer/`
 - `crow-code-validator` -> `skills/code/validator/`
 - `crow-code-objector` -> `skills/code/objector/`
 
