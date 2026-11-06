@@ -17,8 +17,8 @@ Use this when adding, changing, or choosing tests or verification. A test is wor
 - Prefer observable behavior or state over implementation interactions; verify interactions only when the interaction itself is the contract.
 - Use mocks, stubs, and spies only to prove encoded caller behavior or interaction contracts. They do not prove unexercised external runtime semantics.
 - A fake or emulator proves only explicitly named semantics it demonstrably models; add scoped conformance checks when drift is a material risk.
-- When material correctness depends on external protocol, persistence, transaction, timing, concurrency, browser, or service semantics, prefer a controlled disposable real dependency if project support or the benefit justifies its cost.
-- Use project-supported tooling with a pinned, production-representative version and relevant configuration; keep state isolated and setup and cleanup deterministic. Failed cleanup makes the result incomplete.
+- When material correctness depends on external semantics, require a controlled real dependency or scoped conformance evidence proportional to the risk. Prefer a disposable dependency for protocol, persistence, transaction, timing, concurrency, browser, or service behavior when project support or the benefit justifies its cost.
+- Use project-supported tooling with a pinned, production-representative version and relevant configuration; keep state isolated and setup and cleanup deterministic. Failed or unverified cleanup makes the result incomplete.
 - Production or shared-environment mutation requires separate explicit approval and is not ordinary test evidence.
 - Treat real-dependency results as proof only for the exercised version, configuration, and path, not untested production topology or operational behavior.
-- If required proof is infeasible, ask the user to provide the environment, narrow the claim, accept it as unverified, or defer the change. Do not replace it with mocks and claim success.
+- If required proof is infeasible, run useful lower-level checks but report only the affected criterion as blocked or unverified. Ask the user to provide the environment, narrow the claim, accept it as unverified, or defer the change; do not replace required proof with mocks and claim success.

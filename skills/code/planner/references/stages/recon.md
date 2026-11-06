@@ -6,13 +6,11 @@ Map current behavior before explaining it or choosing an edit surface.
 
 - Start with user-supplied runtime evidence, named reference implementations, or requested local sources when they can answer directly; do not substitute a broader source the user excluded.
 - For continued work, reuse established findings, source references, and retained results while they remain applicable. Reopen investigation only for a missing fact, conflicting evidence, or a relevant source change; limit freshness checks to mutable facts needed for the next action. Retain the minimal safe result or reference needed for an authorized next step so it does not require repeating discovery, and stop once its evidence needs are met.
-- Before using a field or signal in a plan, verify that the intended layer can actually access it.
-- Map cross-file or cross-layer behavior before editing.
-- Trace definitions before call sites for types, schemas, flags, props, and payloads.
-- Trace call sites before edits when behavior already exists and must be adjusted.
+- Start at the entry point relevant to the issue and trace the necessary upstream and downstream behavior, including affected callers, before choosing an edit surface.
+- Before relying on a type, field, or signal, verify its definition and that the intended layer can access it.
 - For cross-repo or runtime work, establish the relevant owner, canonical command, target surface, and mock or data route from primary local evidence before launching; stop once the applicable facts and proof path are known.
 
-Start at the consuming boundary:
+Typical entry points:
 
 - For UI changes, find the rendered component and trace props upward.
 - For API changes, find the route or controller and trace auth, validation, service, model, and storage.
