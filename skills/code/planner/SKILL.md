@@ -23,6 +23,7 @@ Execution begins only after explicit user approval of the latest plan.
 
 ## Conditional References
 
+- For framework-specific decisions, use [references/frameworks/index.md](references/frameworks/index.md) and load only the matching entries.
 - Read [references/behaviors/challenge-proposals.md](references/behaviors/challenge-proposals.md) when a proposed design already exists.
 - Read [references/behaviors/multi-source-state.md](references/behaviors/multi-source-state.md) when behavior combines multiple sources, asynchronous responses, caching, or state lifecycle.
 - Read [references/behaviors/parallel-recon.md](references/behaviors/parallel-recon.md) when at least two independent, material investigations can run concurrently.
