@@ -1,0 +1,24 @@
+{
+  "name": "crow-custom-style",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./gui-experimental": "./dist/gui-experimental.cjs"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@opencode/plugin": "2.2.6"
+  },
+  "devDependencies": {
+    "solid-js": "1.9.18",
+    "typescript": "7.0.2",
+    "vite": "8.3.6",
+    "vite-plugin-solid": "2.11.15"
+  }
+}

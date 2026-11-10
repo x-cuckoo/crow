@@ -1,0 +1,29 @@
+/* OpenCode 2.2.6 desktop icon button; the mobile text button has a different component. */
+[data-component="composer"] [data-slot="composer-actions"]
+  [data-component="icon-button-v2"][data-action="composer-submit"][data-variant="submit"] {
+  /* Replace the native gradient as well as its base color. */
+  background: #0089ff;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: none;
+  text-shadow: none;
+
+  &:is(:hover, [data-state="hover"]):not(:disabled) {
+    background: #0078e0;
+  }
+
+  &:is(:active, [data-state="pressed"]):not(:disabled) {
+    background: #0067c2;
+  }
+
+  &:is(:focus-visible, [data-state="focus"]):not(:disabled) {
+    outline: 2px solid #0089ff;
+    outline-offset: 2px;
+  }
+
+  &:is(:disabled, [data-state="disabled"]) {
+    background: #0089ff;
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}

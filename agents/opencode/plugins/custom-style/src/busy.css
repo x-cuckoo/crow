@@ -1,0 +1,13 @@
+/* Keep the host's busy-state visibility and replace only the tab activity graphic. */
+[data-titlebar-tab][data-status="busy"] [data-slot="tab-status"]
+  [data-component="activity-ring"][data-mark="busy"] {
+  width: 16px;
+  height: 16px;
+  background: url("./busy.svg?inline") center / contain no-repeat;
+  filter: brightness(4);
+}
+
+[data-titlebar-tab][data-status="busy"] [data-slot="tab-status"]
+  [data-component="activity-ring"][data-mark="busy"] > svg {
+  display: none;
+}
