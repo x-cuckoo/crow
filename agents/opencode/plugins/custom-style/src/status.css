@@ -1,0 +1,30 @@
+/* Style both host dot placements without changing their visibility rules. */
+[data-titlebar-tab][data-status="unread"] :is(
+    [data-slot="tab-status-dot"][data-mark="unread"],
+    [data-slot="tab-avatar-unread-dot"]
+  ) {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0089ff;
+}
+
+[data-titlebar-tab][data-status="attention"] :is(
+    [data-slot="tab-status-dot"][data-mark="attention"],
+    [data-slot="tab-avatar-unread-dot"]
+  ) {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffb020;
+  animation: crow-custom-style-attention-breathe 2.4s ease-in-out infinite;
+}
+
+@keyframes crow-custom-style-attention-breathe {
+  0%, 100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
