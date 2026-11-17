@@ -7,6 +7,12 @@ description: Review code for concrete defects, scope violations, and collaborati
 
 Review implemented code. Use `crow-code-objector` for plan review and `crow-code-validator` when tests or runtime evidence are needed.
 
+## Review Context
+
+- If the current context participated in planning or implementing the changes, use an independent review context that does not inherit that reasoning history. If already in an independent review context, review directly.
+- Provide requirements, agreed constraints, the review target and comparison base, and validation evidence. Let the reviewer inspect code and form its own conclusions; do not pass implementation reasoning, self-assessments, or preferred findings.
+- Use the isolation capability available in the environment. If isolation is unavailable, explicitly label the result as self-review rather than independent review.
+
 ## Workflow
 
 - Establish the requested review target, comparison base where applicable, and requirements. Review the full scoped diff and trace affected callers or dependencies as needed; keep existing-code reviews within the named scope.
