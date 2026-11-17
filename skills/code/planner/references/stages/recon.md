@@ -5,8 +5,10 @@ Map current behavior before explaining it or choosing an edit surface.
 ## Trace the flow
 
 - Start with user-supplied runtime evidence, named reference implementations, or requested local sources when they can answer directly; do not substitute a broader source the user excluded.
+- For diagnosis, establish observed facts and the symptom to explain before evaluating candidate causes, including user suggestions. Seek evidence that distinguishes those causes; a plausible code path or a difference between signals with different semantics does not establish incident causation.
 - For continued work, reuse established findings, source references, and retained results while they remain applicable. Reopen investigation only for a missing fact, conflicting evidence, or a relevant source change; limit freshness checks to mutable facts needed for the next action. Retain the minimal safe result or reference needed for an authorized next step so it does not require repeating discovery, and stop once its evidence needs are met.
 - Start at the entry point relevant to the issue and trace the necessary upstream and downstream behavior, including affected callers, before choosing an edit surface.
+- Scope absence claims to inspected paths and available evidence. Before ruling out a behavior, trace its relevant triggers back from the actual execution entry point; distinguish no matching records from unreadable or unavailable data.
 - Before relying on a type, field, or signal, verify its definition and that the intended layer can access it.
 - For cross-repo or runtime work, establish the relevant owner, canonical command, target surface, and mock or data route from primary local evidence before launching; stop once the applicable facts and proof path are known.
 
