@@ -18,7 +18,7 @@ Use this skill once the edit surface is known. If a planner plan exists, execute
 
 - Use [references/languages/index.md](references/languages/index.md) when writing or modifying code; load only the entries matching the languages being changed.
 - Read [references/behaviors/scope-control.md](references/behaviors/scope-control.md) when one scenario must change and others must not.
-- Read [references/behaviors/code-size-and-splitting.md](references/behaviors/code-size-and-splitting.md) when adding multiple phases or state transitions, nesting beyond two levels, extending code near project size limits, or deciding where to split code.
+- Read [references/behaviors/code-size-and-splitting.md](references/behaviors/code-size-and-splitting.md) when deciding module boundaries, splitting or combining code, or extending code near project size limits.
 - Read [references/behaviors/commit.md](references/behaviors/commit.md) when the task includes a commit.
 - Read [references/behaviors/test-evidence.md](references/behaviors/test-evidence.md) before proposing, creating, changing, selecting for execution, or running behavioral tests or runtime validation.
 - Read [references/tasks/backend-api-auth.md](references/tasks/backend-api-auth.md) for backend API or auth changes.

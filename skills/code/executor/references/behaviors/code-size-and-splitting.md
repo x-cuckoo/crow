@@ -1,20 +1,12 @@
 # Code Size and Splitting
 
-Use project linter and repository limits first. Without them, treat the numbers below as approximate review prompts, never correctness gates or refactoring mandates. Prefer tool-reported metrics; otherwise assess non-blank, non-comment executable structure approximately and do not claim an exact count.
+Follow project linter and repository limits. Otherwise judge boundaries by comprehension and change cost, not fixed line or nesting counts.
 
-## Review Triggers
-
-- Around 50 logical lines, more than two nested branch or loop levels, or multiple branches and state transitions: inspect a function or method for mixed responsibilities, phases, or abstraction levels.
-- Around 100 logical lines: make an explicit split-or-keep decision from cohesion, complexity, and natural seams. A cohesive linear flow may remain intact.
-- Around 500 lines in a behavior-bearing production file or module: inspect ownership before adding another responsibility. Around 800, put new non-trivial responsibility in a cohesive module unless splitting would make the architecture worse.
-- Apply project-specific judgment to generated or vendored code, declarative tables, configuration, schemas, fixtures, snapshots, tests, and dispatch or registration code. Do not game counts with formatting or comments.
-
-## Split by Structure
-
-- Let complexity, cohesion, change reasons, state, branching, nesting, and navigation cost outweigh raw length.
-- Split around a distinct responsibility, phase, state transition, policy and mechanism boundary, or I/O and domain boundary.
-- Use guard clauses when they clarify control flow. Give extracted units intent-revealing names, cohesive contracts, and minimal explicit inputs and outputs; keep the parent flow traceable at one abstraction level.
+- Inspect mixed responsibilities, hidden dependencies, shared mutable state, and repeated navigation when deciding whether to split or combine code. Length alone does not establish a need to refactor.
+- Organize around shared rules, state, and design decisions so changes to the same knowledge stay local. Execution phases alone are not a reason to split; policy/mechanism or I/O/domain boundaries help when they separate knowledge and responsibilities.
+- Split or combine when it reduces what readers must understand together or how many places must change. Preserve a cohesive linear flow when extraction would merely scatter it.
+- Use guard clauses when they clarify control flow. Give extracted units intent-revealing names, cohesive contracts, and minimal explicit inputs and outputs; keep the parent flow traceable. Count call order, state assumptions, and failure behavior as part of the interface callers must understand.
 - Move owned tests, types, documentation, and invariants with a file-level split when that keeps the boundary coherent.
 - If extraction requires many mutable locals, parameters, or a context bag, reconsider the seam instead of hiding coupling.
-- Do not create pass-through helpers without an independent responsibility, arbitrary one-function files, generic utility dumping grounds, or splits that hide a simple linear sequence.
-- Do not refactor unchanged legacy code solely because it exceeds a trigger. Use a natural boundary exposed by the current change; otherwise stay surgical and mention the debt separately.
+- Do not create pass-through helpers without an independent responsibility, arbitrary one-function files, or generic utility dumping grounds.
+- Keep refactoring within the current change's scope. Use a natural boundary exposed by that change; mention unrelated legacy debt separately.
